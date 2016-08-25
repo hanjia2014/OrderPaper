@@ -2,6 +2,7 @@
 using OrderPaper.Models;
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace OrderPaper.Controllers
 {
@@ -9,12 +10,12 @@ namespace OrderPaper.Controllers
     public class OrderPaperSummaryController : Controller
     {
         [HttpGet]
-        public IList<OrderPaperSummary> Get()
+        public string Get()
         {
             var summary = new List<OrderPaperSummary>();
             summary.Add(new OrderPaperSummary { Number = 1, Date = new DateTime(2016, 6, 1), Status = "Provisional" });
             summary.Add(new OrderPaperSummary { Number = 2, Date = new DateTime(2016, 7, 1), Status = "Provisional" });
-            return summary;
+            return JsonConvert.SerializeObject(summary);
         }
     }
 }

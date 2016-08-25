@@ -1,5 +1,5 @@
---temp-output:c:\Projects\OrderPaper\src\OrderPaper\obj\Debug\netcoreapp1.0\
---out:c:\Projects\OrderPaper\src\OrderPaper\bin\Debug\netcoreapp1.0\OrderPaper.dll
+--temp-output:C:\Projects\PS\OrderPaper\src\OrderPaper\obj\Debug\netcoreapp1.0\
+--out:C:\Projects\PS\OrderPaper\src\OrderPaper\bin\Debug\netcoreapp1.0\OrderPaper.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -190,9 +190,9 @@
 --reference:C:\Users\hanj\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\hanj\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\hanj\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
---resource:"c:\Projects\OrderPaper\src\OrderPaper\obj\Debug\netcoreapp1.0\OrderPaperdotnet-compile.deps.json",OrderPaper.deps.json
-c:\Projects\OrderPaper\src\OrderPaper\Program.cs
-c:\Projects\OrderPaper\src\OrderPaper\Startup.cs
-c:\Projects\OrderPaper\src\OrderPaper\Controllers\HomeController.cs
-c:\Projects\OrderPaper\src\OrderPaper\Controllers\OrderPaperSummaryController.cs
-c:\Projects\OrderPaper\src\OrderPaper\Models\OrderPaperSummary.cs
+--resource:"C:\Projects\PS\OrderPaper\src\OrderPaper\obj\Debug\netcoreapp1.0\OrderPaperdotnet-compile.deps.json",OrderPaper.deps.json
+C:\Projects\PS\OrderPaper\src\OrderPaper\Program.cs
+C:\Projects\PS\OrderPaper\src\OrderPaper\Startup.cs
+C:\Projects\PS\OrderPaper\src\OrderPaper\Controllers\HomeController.cs
+C:\Projects\PS\OrderPaper\src\OrderPaper\Controllers\OrderPaperSummaryController.cs
+C:\Projects\PS\OrderPaper\src\OrderPaper\Models\OrderPaperSummary.cs

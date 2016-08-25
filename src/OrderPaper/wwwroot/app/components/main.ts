@@ -17,7 +17,7 @@ import { ROUTER_DIRECTIVES, Router } from '@angular/router';
                             <div class="panel-heading"></div>
                             <div class="panel-body">
                                 <span>{{summary.Number}}</span>
-                                <input class="pull-right" type="button" (click)="openOrderPaper(summary.Number)" value="Edit" />
+                                <input class="pull-right" type="button" (click)="openPaper(summary.Number)" value="Edit" />
                             </div>
                         </li>
                     </ol>`,
@@ -47,7 +47,7 @@ export class MainComponent extends BaseComponent implements OnInit {
             (err: any) => this.error = err);
     }
 
-    openOrderPaper = (id: number) => {
+    openPaper = (id: number) => {
         this.router.navigate(['/order-paper', id]);
     }
 }
