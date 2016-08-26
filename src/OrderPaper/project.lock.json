@@ -1489,6 +1489,12 @@
       "Microsoft.NETCore.Windows.ApiSets/1.0.1": {
         "type": "package"
       },
+      "Microsoft.TypeScript.Compiler/1.8.11": {
+        "type": "package"
+      },
+      "Microsoft.TypeScript.MSBuild/1.8.11": {
+        "type": "package"
+      },
       "Microsoft.VisualBasic/10.0.1": {
         "type": "package",
         "dependencies": {
@@ -4969,6 +4975,55 @@
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.json"
+      ]
+    },
+    "Microsoft.TypeScript.Compiler/1.8.11": {
+      "sha512": "16he5jQxJ5wc3UbPOcjle4OhxH9eF4OFhXQCXJaqJsKq8FstoYuqAGxxhUVDsAZh1UDVxVEa66SuZLPkIP+PyA==",
+      "type": "package",
+      "path": "Microsoft.TypeScript.Compiler/1.8.11",
+      "files": [
+        "License.htm",
+        "Microsoft.TypeScript.Compiler.1.8.11.nupkg.sha512",
+        "Microsoft.TypeScript.Compiler.nuspec",
+        "tools/chakracore.dll",
+        "tools/lib.d.ts",
+        "tools/lib.es6.d.ts",
+        "tools/tsc.exe",
+        "tools/tsc.js"
+      ]
+    },
+    "Microsoft.TypeScript.MSBuild/1.8.11": {
+      "sha512": "bwW6aCnfCynu674ThYeu9iUOAxf0jGhy2cr6V7iNBegQcowcJ+sq3qu65TKdNH/jo1qHI8lU3C/ItK/bdMyDhA==",
+      "type": "package",
+      "path": "Microsoft.TypeScript.MSBuild/1.8.11",
+      "files": [
+        "Microsoft.TypeScript.MSBuild.1.8.11.nupkg.sha512",
+        "Microsoft.TypeScript.MSBuild.nuspec",
+        "tools/Microsoft.TypeScript.Default.props",
+        "tools/Microsoft.TypeScript.NuGet.props",
+        "tools/Microsoft.TypeScript.targets",
+        "tools/TypeScript.Tasks.dll",
+        "tools/install.ps1",
+        "tools/tsc/chakracore.dll",
+        "tools/tsc/cs/diagnosticMessages.generated.json",
+        "tools/tsc/de/diagnosticMessages.generated.json",
+        "tools/tsc/en/diagnosticMessages.generated.json",
+        "tools/tsc/es/diagnosticMessages.generated.json",
+        "tools/tsc/fr/diagnosticMessages.generated.json",
+        "tools/tsc/it/diagnosticMessages.generated.json",
+        "tools/tsc/ja/diagnosticMessages.generated.json",
+        "tools/tsc/ko/diagnosticMessages.generated.json",
+        "tools/tsc/lib.d.ts",
+        "tools/tsc/lib.es6.d.ts",
+        "tools/tsc/pl/diagnosticMessages.generated.json",
+        "tools/tsc/pt-BR/diagnosticMessages.generated.json",
+        "tools/tsc/ru/diagnosticMessages.generated.json",
+        "tools/tsc/tr/diagnosticMessages.generated.json",
+        "tools/tsc/tsc.exe",
+        "tools/tsc/tsc.js",
+        "tools/tsc/zh-CN/diagnosticMessages.generated.json",
+        "tools/tsc/zh-TW/diagnosticMessages.generated.json",
+        "tools/uninstall.ps1"
       ]
     },
     "Microsoft.VisualBasic/10.0.1": {
@@ -9891,6 +9946,8 @@
       "Microsoft.Extensions.Logging.Debug >= 1.0.0",
       "Microsoft.Extensions.Options.ConfigurationExtensions >= 1.0.0",
       "Microsoft.NETCore.App >= 1.0.0",
+      "Microsoft.TypeScript.Compiler >= 1.8.11",
+      "Microsoft.TypeScript.MSBuild >= 1.8.11",
       "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0"
     ],
     ".NETCoreApp,Version=v1.0": []

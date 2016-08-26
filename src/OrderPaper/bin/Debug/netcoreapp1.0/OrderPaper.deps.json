@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "c1ec4d228e256a305dcf098cfa396cc0f435d6a0"
+    "signature": "61815468bbeadfc76a661dce04627c91d8259280"
   },
   "compilationOptions": {
     "defines": [
@@ -28,7 +28,9 @@
           "Microsoft.Extensions.Logging.Console": "1.0.0",
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
-          "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0"
+          "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
+          "Microsoft.TypeScript.MSBuild": "1.8.11",
+          "Microsoft.TypeScript.Compiler": "1.8.11"
         },
         "runtime": {
           "OrderPaper.dll": {}
@@ -1207,6 +1209,8 @@
           "lib/netstandard1.1/Microsoft.Net.Http.Headers.dll": {}
         }
       },
+      "Microsoft.TypeScript.Compiler/1.8.11": {},
+      "Microsoft.TypeScript.MSBuild/1.8.11": {},
       "Microsoft.VisualStudio.Web.BrowserLink.Loader/14.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "1.0.0",
@@ -3573,6 +3577,16 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-1lr92itF1fKR2oEQ6gk1IUsuCgp7UMlf/b1sjlAyuDeUnttj39ra59GQHYpomglJX1UVNpi1/cSBbEsXoNeIhw=="
+    },
+    "Microsoft.TypeScript.Compiler/1.8.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-16he5jQxJ5wc3UbPOcjle4OhxH9eF4OFhXQCXJaqJsKq8FstoYuqAGxxhUVDsAZh1UDVxVEa66SuZLPkIP+PyA=="
+    },
+    "Microsoft.TypeScript.MSBuild/1.8.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bwW6aCnfCynu674ThYeu9iUOAxf0jGhy2cr6V7iNBegQcowcJ+sq3qu65TKdNH/jo1qHI8lU3C/ItK/bdMyDhA=="
     },
     "Microsoft.VisualStudio.Web.BrowserLink.Loader/14.0.0": {
       "type": "package",

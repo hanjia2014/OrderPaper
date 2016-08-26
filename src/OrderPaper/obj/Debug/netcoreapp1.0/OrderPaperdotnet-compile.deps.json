@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0/",
-    "signature": "4b8655d496f3da91a62bc1d86f523aea30400909"
+    "signature": "91cf60e4bdf3590b4c3dd9d9c5c22cc52cd9241e"
   },
   "compilationOptions": {
     "defines": [
@@ -28,7 +28,9 @@
           "Microsoft.Extensions.Logging.Console": "1.0.0",
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
-          "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0"
+          "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
+          "Microsoft.TypeScript.MSBuild": "1.8.11",
+          "Microsoft.TypeScript.Compiler": "1.8.11"
         },
         "compile": {
           "OrderPaper.dll": {}
@@ -1067,6 +1069,8 @@
       },
       "Microsoft.NETCore.Targets/1.0.1": {},
       "Microsoft.NETCore.Windows.ApiSets/1.0.1": {},
+      "Microsoft.TypeScript.Compiler/1.8.11": {},
+      "Microsoft.TypeScript.MSBuild/1.8.11": {},
       "Microsoft.VisualBasic/10.0.1": {
         "dependencies": {
           "System.Collections": "4.0.11",
@@ -2579,7 +2583,9 @@
           "Microsoft.Extensions.Logging.Console": "1.0.0",
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
-          "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0"
+          "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
+          "Microsoft.TypeScript.MSBuild": "1.8.11",
+          "Microsoft.TypeScript.Compiler": "1.8.11"
         },
         "runtime": {
           "OrderPaper.dll": {}
@@ -3621,6 +3627,8 @@
       },
       "Microsoft.NETCore.Targets/1.0.1": {},
       "Microsoft.NETCore.Windows.ApiSets/1.0.1": {},
+      "Microsoft.TypeScript.Compiler/1.8.11": {},
+      "Microsoft.TypeScript.MSBuild/1.8.11": {},
       "Microsoft.VisualBasic/10.0.1": {
         "dependencies": {
           "System.Collections": "4.0.11",
@@ -5451,6 +5459,16 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-SaToCvvsGMxTgtLv/BrFQ5IFMPRE1zpWbnqbpwykJa8W5XiX82CXI6K2o7yf5xS7EP6t/JzFLV0SIDuWpvBZVw=="
+    },
+    "Microsoft.TypeScript.Compiler/1.8.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-16he5jQxJ5wc3UbPOcjle4OhxH9eF4OFhXQCXJaqJsKq8FstoYuqAGxxhUVDsAZh1UDVxVEa66SuZLPkIP+PyA=="
+    },
+    "Microsoft.TypeScript.MSBuild/1.8.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bwW6aCnfCynu674ThYeu9iUOAxf0jGhy2cr6V7iNBegQcowcJ+sq3qu65TKdNH/jo1qHI8lU3C/ItK/bdMyDhA=="
     },
     "Microsoft.VisualBasic/10.0.1": {
       "type": "package",
