@@ -4,12 +4,14 @@ import { OrderPaperService } from '../services/app.services';
 import { BaseComponent } from './base.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Select2Component } from '../directives/select2';
+import { DatePickerComponent } from '../directives/datepicker';
 
 @Component({
     selector: 'order-paper',
-    template: `<h1>{{id}}</h1><select2 [id]="selectId" [multiple]="false" [data]="items2" (selected)="selected($event)"></select2>`,
+    template: `<h1>{{id}}</h1><select2 [id]="selectId" [enableSearch]="false" [multiple]="false" [data]="items2" (selected)="selected($event)"></select2>
+                <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker>`,
     styles: [],
-    directives: [Select2Component],
+    directives: [Select2Component, DatePickerComponent],
     providers: [OrderPaperService]
 })
 export class OrderPaperComponent extends BaseComponent implements OnInit {
@@ -17,9 +19,13 @@ export class OrderPaperComponent extends BaseComponent implements OnInit {
     error: any;
     sub: any;
     id: number;
+    //select2
     selectedItem: any;
     selectId: string;
     items2 = [{ id: "Hearing Of Evidence", text: "Hearing Of Evidence" }, { id: "Consideration", text: "Consideration" }, { id: "Free Text", text: "Free Text" }];
+
+    //datepicker
+    orderPaperDate: Date;
 
     constructor(private orderPaperService: OrderPaperService, private route: ActivatedRoute) {
         super();
@@ -32,5 +38,9 @@ export class OrderPaperComponent extends BaseComponent implements OnInit {
     }
     public selected(value: any): void {
         this.selectedItem = value;
+    }
+
+    dateChange = (value: Date) => {
+        this.orderPaperDate = value;
     }
 }

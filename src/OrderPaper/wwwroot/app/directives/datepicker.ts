@@ -25,8 +25,9 @@ export class DatePickerComponent implements AfterViewInit {
             pick12HourFormat: true,
             pickTime: this.IncludeTime,
         };
-        
-        $("#" + this.id).datetimepicker(options).on("change", (e: any) => {
+
+        var elem = $("#" + this.id);
+        elem.datetimepicker(options).on("change", (e: any) => {
             var date = e.delegateTarget.children[0].value;
 
             this.onValueChange.next(new Date(date));

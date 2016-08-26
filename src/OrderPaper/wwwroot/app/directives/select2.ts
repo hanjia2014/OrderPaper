@@ -14,6 +14,9 @@ export class Select2Component implements AfterViewInit {
     data: any;
     @Input()
     id: string;
+    @Input()
+    enableSearch: boolean;
+
     @Output() selected = new EventEmitter();
 
     ngAfterViewInit() {
@@ -25,6 +28,11 @@ export class Select2Component implements AfterViewInit {
             multiple: this.multiple,
             maximumInputLength: 30
         };
+
+        if (this.enableSearch == false) {
+            options['minimumResultsForSearch'] = -1;
+        }
+
         $("#" + this.id).select2(options).on("change", (e: any) => {
             this.selected.next(e.val);
         });
