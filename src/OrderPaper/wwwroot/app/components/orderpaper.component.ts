@@ -1,21 +1,32 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit, ViewChild } from '@angular/core';
 import { OrderPaper } from '../models/orderpaper';
 import { OrderPaperService } from '../services/app.services';
 import { BaseComponent } from './base.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Select2Component } from '../directives/select2';
 import { DatePickerComponent } from '../directives/datepicker';
+import { MODAL_DIRECTIVES, ModalComponent } from '../directives/ng2-bs3-modal/ng2-bs3-modal';
 
 @Component({
     selector: 'order-paper',
     template: `<h1>{{id}}</h1><select2 [id]="selectId" [enableSearch]="false" [multiple]="false" [data]="items2" (selected)="selected($event)"></select2>
-                <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker>`,
+                <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker><button type="button" class="btn btn-default" (click)="modal.open()">Add</button>
+<modal [animation]="animation" [keyboard]="keyboard" [backdrop]="backdrop" (onClose)="closed()" (onDismiss)="dismissed()"
+       (onOpen)="opened()" [cssClass]="cssClass" #modal>
+    <modal-header [show-close]="true">
+        <h4 class="modal-title">I'm a modal!</h4>
+    </modal-header>
+    <modal-body>
+        <input [(ngModel)]="orderPaper.Date" />
+    </modal-body>
+    <modal-footer [show-default-buttons]="true"></modal-footer>
+</modal>`,
     styles: [],
-    directives: [Select2Component, DatePickerComponent],
+    directives: [Select2Component, DatePickerComponent, MODAL_DIRECTIVES],
     providers: [OrderPaperService]
 })
 export class OrderPaperComponent extends BaseComponent implements OnInit {
-    orderPaper: OrderPaper;
+    orderPaper: OrderPaper = new OrderPaper();
     error: any;
     sub: any;
     id: number;
@@ -26,6 +37,10 @@ export class OrderPaperComponent extends BaseComponent implements OnInit {
 
     //datepicker
     orderPaperDate: Date;
+
+    //modal
+    @ViewChild('modals')
+    modal: ModalComponent;
 
     constructor(private orderPaperService: OrderPaperService, private route: ActivatedRoute) {
         super();
@@ -43,4 +58,24 @@ export class OrderPaperComponent extends BaseComponent implements OnInit {
     dateChange = (value: Date) => {
         this.orderPaperDate = value;
     }
+
+    //modal
+    opened() {
+
+    }
+
+    navigate() {
+
+    }
+
+    open() {
+        this.modal.open();
+    }
+    closed() {
+
+    }
+    dismissed() {
+
+    }
+
 }
