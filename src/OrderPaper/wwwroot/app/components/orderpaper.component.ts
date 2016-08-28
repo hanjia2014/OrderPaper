@@ -17,6 +17,7 @@ import { MotionSectionComponent } from './sections/motion.section.component';
                     <tab [title]="'Details'">
                         <select2 [id]="selectId" [enableSearch]="false" [multiple]="false" [data]="items2" (selected)="selected($event)"></select2>
                         <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker><button type="button" class="btn btn-default" (click)="modal.open()">Add</button>
+                        <motion-section></motion-section>
                     </tab>
                     <tab [title]="'Preview'">
                     </tab>
