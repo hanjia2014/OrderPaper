@@ -11,4 +11,5 @@ export class MotionSection extends SectionBase {
     Summary: string;
     Member: string;
     Speeches: string;
+    Motion: string;
 }
