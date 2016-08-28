@@ -8,6 +8,7 @@ import { DatePickerComponent } from '../directives/datepicker';
 import { MODAL_DIRECTIVES, ModalComponent } from '../directives/ng2-bs3-modal/ng2-bs3-modal';
 import { Tabs } from '../directives/tabs/tabs';
 import { Tab } from '../directives/tabs/tab';
+import { MotionSectionComponent } from './sections/motion.section.component';
 
 @Component({
     selector: 'order-paper',
@@ -31,7 +32,7 @@ import { Tab } from '../directives/tabs/tab';
                     <modal-footer [show-default-buttons]="true"></modal-footer>
                 </modal>`,
     styles: [],
-    directives: [Select2Component, DatePickerComponent, MODAL_DIRECTIVES, Tab, Tabs],
+    directives: [Select2Component, DatePickerComponent, MODAL_DIRECTIVES, Tab, Tabs, MotionSectionComponent],
     providers: [OrderPaperService]
 })
 export class OrderPaperComponent extends BaseComponent implements OnInit {
