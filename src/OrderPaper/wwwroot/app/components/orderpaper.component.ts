@@ -6,23 +6,32 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Select2Component } from '../directives/select2';
 import { DatePickerComponent } from '../directives/datepicker';
 import { MODAL_DIRECTIVES, ModalComponent } from '../directives/ng2-bs3-modal/ng2-bs3-modal';
+import { Tabs } from '../directives/tabs/tabs';
+import { Tab } from '../directives/tabs/tab';
 
 @Component({
     selector: 'order-paper',
-    template: `<h1>{{id}}</h1><select2 [id]="selectId" [enableSearch]="false" [multiple]="false" [data]="items2" (selected)="selected($event)"></select2>
-                <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker><button type="button" class="btn btn-default" (click)="modal.open()">Add</button>
-<modal [animation]="animation" [keyboard]="keyboard" [backdrop]="backdrop" (onClose)="closed()" (onDismiss)="dismissed()"
-       (onOpen)="opened()" [cssClass]="cssClass" #modal>
-    <modal-header [show-close]="true">
-        <h4 class="modal-title">I'm a modal!</h4>
-    </modal-header>
-    <modal-body>
-        <input [(ngModel)]="orderPaper.Date" />
-    </modal-body>
-    <modal-footer [show-default-buttons]="true"></modal-footer>
-</modal>`,
+    template: `<h1>{{id}}</h1>
+                <tabs>
+                    <tab [title]="'Details'">
+                        <select2 [id]="selectId" [enableSearch]="false" [multiple]="false" [data]="items2" (selected)="selected($event)"></select2>
+                        <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker><button type="button" class="btn btn-default" (click)="modal.open()">Add</button>
+                    </tab>
+                    <tab [title]="'Preview'">
+                    </tab>
+                </tabs>
+                <modal [animation]="animation" [keyboard]="keyboard" [backdrop]="backdrop" (onClose)="closed()" (onDismiss)="dismissed()"
+                       (onOpen)="opened()" [cssClass]="cssClass" #modal>
+                    <modal-header [show-close]="true">
+                        <h4 class="modal-title">I'm a modal!</h4>
+                    </modal-header>
+                    <modal-body>
+                        <input [(ngModel)]="orderPaper.Date" />
+                    </modal-body>
+                    <modal-footer [show-default-buttons]="true"></modal-footer>
+                </modal>`,
     styles: [],
-    directives: [Select2Component, DatePickerComponent, MODAL_DIRECTIVES],
+    directives: [Select2Component, DatePickerComponent, MODAL_DIRECTIVES, Tab, Tabs],
     providers: [OrderPaperService]
 })
 export class OrderPaperComponent extends BaseComponent implements OnInit {
