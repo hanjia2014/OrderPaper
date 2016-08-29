@@ -9,7 +9,7 @@ import { ROUTER_DIRECTIVES, Router } from '@angular/router';
     selector: 'app',
     template: `<h1>Order Paper</h1>
                     <div id="spinner"></div>
-                    <a href="#" class="pull-right" (click)="toggle($event)">
+                    <a href="#" (click)="toggle($event)">
                         {{isExpand ? 'Expand' : 'Collapse'}}
                     </a>
                     <ol type="1" id="{{SortableListId}}" class="list-sortable">
