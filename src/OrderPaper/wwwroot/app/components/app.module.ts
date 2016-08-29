@@ -10,6 +10,7 @@ import { routing }        from './app.routes';
 @NgModule({
     imports: [BrowserModule, HttpModule, FormsModule, routing],
     declarations: [MasterComponent, MainComponent, OrderPaperComponent],
-    bootstrap: [MasterComponent]
+    bootstrap: [MasterComponent],
+    providers: []
 })
 export class AppModule { }

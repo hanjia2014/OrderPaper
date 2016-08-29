@@ -13,11 +13,22 @@ import { MotionSectionComponent } from './sections/motion.section.component';
 @Component({
     selector: 'order-paper',
     template: `<h1>{{id}}</h1>
+                <div id="spinner"></div>
                 <tabs>
                     <tab [title]="'Details'">
                         <select2 [id]="selectId" [enableSearch]="false" [multiple]="false" [data]="items2" (selected)="selected($event)"></select2>
                         <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker><button type="button" class="btn btn-default" (click)="modal.open()">Add</button>
-                        <motion-section></motion-section>
+
+                    <ol type="1" id="{{SortableListId}}" class="list-sortable">
+                        <li class="panel panel-info" *ngFor="let section of orderPaper.Sections; let i = index">
+                            <div class="panel-heading"></div>
+                            <div class="panel-body">
+                                <span><motion-section [index]="i" [motion]="section"></motion-section></span>
+                                <input class="pull-right" type="button" (click)="openPaper(section.Sequence)" value="Edit" />
+                            </div>
+                        </li>
+                    </ol>
+
                     </tab>
                     <tab [title]="'Preview'">
                     </tab>
@@ -57,14 +68,26 @@ export class OrderPaperComponent extends BaseComponent implements OnInit {
         super();
     }
     ngOnInit() {
+        this.SortableListId = 'draggableOrderPaperSectionList';
+        var listElm = document.getElementById("spinner");
+        this.spinner.spin(listElm);
+
         this.sub = this.route.params.subscribe(params => {
             this.id = +params['id'];
             this.selectId = 'mySel' + this.id;
+            this.orderPaperService.getOrderPaper(this.id).subscribe(
+                (data: OrderPaper) => {
+                    Object.assign(this.orderPaper, data);
+                    this.spinner.stop();
+                },
+                (err: any) => this.error = err);
         });
     }
     public selected(value: any): void {
         this.selectedItem = value;
     }
+
+
 
     dateChange = (value: Date) => {
         this.orderPaperDate = value;

@@ -1,8 +1,11 @@
 ﻿import { Status } from './constants';
+import { MotionSection } from './Section';
 
 export class OrderPaper {
-    Number: number;
-    Date: Date;
-    SittingHours: string;
-    Status: Status;
+    FrontPage: boolean;
+    Include: boolean;
+    OrderType: string;
+    Details: string;
+    Speeches: string;
+    Sections: Array<MotionSection>;
 }

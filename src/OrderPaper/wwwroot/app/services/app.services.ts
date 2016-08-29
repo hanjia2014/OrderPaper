@@ -9,14 +9,25 @@ import { OrderPaperSummary } from '../models/orderpapersummary';
 
 @Injectable()
 export class OrderPaperService implements IOrderPaperService {
-    apiUrl: string = '/api/orderpapersummary';
+    apiOrderpapersummaryUrl: string = '/api/orderpapersummary';
+    apiOrderpaperUrl: string = '/api/orderpaper';
 
     constructor(private http: Http) {
         
     }
 
     getOrderPaperList = (): Observable<Array<OrderPaperSummary>> => {
-        return this.http.get(this.apiUrl).map((res: Response) => {
+        return this.http.get(this.apiOrderpapersummaryUrl).map((res: Response) => {
+            if (res.status != 200) {
+                throw new Error('No objects to retrieve! code status ' + res.status);
+            } else {
+                return res.json();
+            }
+        });
+    }
+
+    getOrderPaper = (id: number): Observable<OrderPaper> => {
+        return this.http.get(this.apiOrderpaperUrl + "/" + id).map((res: Response) => {
             if (res.status != 200) {
                 throw new Error('No objects to retrieve! code status ' + res.status);
             } else {

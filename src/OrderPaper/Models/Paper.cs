@@ -10,6 +10,8 @@ namespace OrderPaper.Models
         public bool FrontPage { get; set; }
         public bool Include { get; set; }
         public string OrderType { get; set; }
+        public string Details { get; set; }
+        public string Speeches { get; set; }
         public List<MotionSection> Sections { get; set; }
     }
 }
