@@ -9,7 +9,6 @@ import { MotionSection } from '../../models/section';
                         Title: {{motion.Title}}<br/>
                         Speeches: {{motion.Speeches}}<br/>
                         Member: {{motion.Member}}<br/>
-                        Motion: {{motion.Motion}}<br/>
                         Date: {{motion.Date}}<br/>
                         Summary: {{motion.Summary}}
                     </div>
