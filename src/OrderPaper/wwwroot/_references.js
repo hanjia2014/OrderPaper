@@ -1,5 +1,6 @@
 ﻿/// <autosync enabled="true" />
 /// <reference path="app/components/rxjs-operators.js" />
+/// <reference path="app/directives/dragula/dragula.js" />
 /// <reference path="app/interfaces/app.interfaces.js" />
 /// <reference path="app/models/Base.js" />
 /// <reference path="app/models/constants.js" />
