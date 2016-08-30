@@ -1337,8 +1337,11 @@ namespace OrderPaper.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public bool Post([FromBody]Paper value)
         {
+            var agendaJson = JsonConvert.SerializeObject(value);
+            var doc = JsonConvert.DeserializeXNode(agendaJson, "OrderPaper");
+            return value != null;
         }
 
         // PUT api/values/5

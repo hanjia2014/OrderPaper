@@ -9,6 +9,7 @@ import { MODAL_DIRECTIVES, ModalComponent } from '../directives/ng2-bs3-modal/ng
 import { Tabs } from '../directives/tabs/tabs';
 import { Tab } from '../directives/tabs/tab';
 import { MotionSectionComponent } from './sections/motion.section.component';
+import { Response }     from '@angular/http';
 
 @Component({
     selector: 'order-paper',
@@ -28,6 +29,10 @@ import { MotionSectionComponent } from './sections/motion.section.component';
                             </div>
                         </li>
                     </ol>
+
+                    <a class="btn btn-lg save-button" (click)="save($event)">
+                        <span class="glyphicon glyphicon-floppy-disk"></span> Save Agenda
+                    </a>
 
                     </tab>
                     <tab [title]="'Preview'">
@@ -86,7 +91,15 @@ export class OrderPaperComponent extends BaseComponent implements OnInit {
     public selected(value: any): void {
         this.selectedItem = value;
     }
+    //save
+    save = (e: any) => {
+        e.preventDefault();
+        this.orderPaperService.save(this.orderPaper).subscribe(
+            (data: Response) => {
 
+            },
+            (err: any) => this.error = err);
+    }
 
 
     dateChange = (value: Date) => {
