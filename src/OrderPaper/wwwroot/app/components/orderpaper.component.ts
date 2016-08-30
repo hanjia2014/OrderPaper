@@ -21,7 +21,7 @@ import { MotionSectionComponent } from './sections/motion.section.component';
 
                     <ol type="1" id="{{SortableListId}}" class="list-sortable">
                         <li class="panel panel-info" *ngFor="let section of orderPaper.Sections; let i = index">
-                            <div class="panel-heading"></div>
+                            <div class="panel-heading" [style.background-color] = "section.IsGroup ? 'pink' : '#d9edf7'"></div>
                             <div class="panel-body">
                                 <span><motion-section [index]="i" [motion]="section"></motion-section></span>
                                 <input class="pull-right" type="button" (click)="openPaper(section.Sequence)" value="Edit" />

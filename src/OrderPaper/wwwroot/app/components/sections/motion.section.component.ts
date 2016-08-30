@@ -6,6 +6,8 @@ import { MotionSection } from '../../models/section';
     template: `<h1>Motion -- {{index}}</h1>
                 <div class="container">
                     <div class="row">
+                        Group: <input type="checkbox" [(ngModel)]="motion.IsGroup">
+                        <br/>
                         Title: {{motion.Title}}<br/>
                         Speeches: {{motion.Speeches}}<br/>
                         Member: {{motion.Member}}<br/>
@@ -26,5 +28,6 @@ export class MotionSectionComponent implements OnInit {
     constructor() {
     }
     ngOnInit() {
+        var m = this.motion;
     }
 }

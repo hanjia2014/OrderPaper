@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using OrderPaper.Models;
 using Newtonsoft.Json;
@@ -1330,8 +1328,8 @@ namespace OrderPaper.Controllers
             //#endregion
             #endregion
             sections.Add(new MotionSection { Sequence = 1, Date = DateTime.Now, Member = "Hon Peter Dunne", Speeches = "John Doe", Summary = "This is a motion", Type = "Motion", Title = "That the House congratulate Constance Stiring and Olivia Clark", Motion = "That the House congratulate Constance Stiring and Olivia Clark of Onslow College who won the Bronze medal in the GU16 Double at the 2016 Maadi Cup Rowing Regatta and note that it is the frst Onslow College girls medal in more than 40 years." });
-            sections.Add(new MotionSection { Sequence = 2, Date = DateTime.Now, Member = "Hon Peter Dunne", Speeches = "John Doe", Summary = "This is a motion", Type = "Motion", Title = "That the House congratulate Constance Stiring and Olivia Clark", Motion = "That the House congratulate Constance Stiring and Olivia Clark of Onslow College who won the Bronze medal in the GU16 Double at the 2016 Maadi Cup Rowing Regatta and note that it is the frst Onslow College girls medal in more than 40 years." });
-            sections.Add(new MotionSection { Sequence = 3, Date = DateTime.Now, Member = "Hon Peter Dunne", Speeches = "John Doe", Summary = "This is a motion", Type = "Motion", Title = "That the House congratulate Constance Stiring and Olivia Clark", Motion = "That the House congratulate Constance Stiring and Olivia Clark of Onslow College who won the Bronze medal in the GU16 Double at the 2016 Maadi Cup Rowing Regatta and note that it is the frst Onslow College girls medal in more than 40 years." });
+            sections.Add(new MotionSection { Sequence = 2, Date = DateTime.Now, IsGroup = true, Member = "Hon Peter Dunne", Speeches = "John Doe", Summary = "This is a motion", Type = "Motion", Title = "That the House congratulate Constance Stiring and Olivia Clark", Motion = "That the House congratulate Constance Stiring and Olivia Clark of Onslow College who won the Bronze medal in the GU16 Double at the 2016 Maadi Cup Rowing Regatta and note that it is the frst Onslow College girls medal in more than 40 years." });
+            sections.Add(new MotionSection { Sequence = 3, Date = DateTime.Now, IsGroup = true, Member = "Hon Peter Dunne", Speeches = "John Doe", Summary = "This is a motion", Type = "Motion", Title = "That the House congratulate Constance Stiring and Olivia Clark", Motion = "That the House congratulate Constance Stiring and Olivia Clark of Onslow College who won the Bronze medal in the GU16 Double at the 2016 Maadi Cup Rowing Regatta and note that it is the frst Onslow College girls medal in more than 40 years." });
             sections.Add(new MotionSection { Sequence = 4, Date = DateTime.Now, Member = "Hon Peter Dunne", Speeches = "John Doe", Summary = "This is a motion", Type = "Motion", Title = "That the House congratulate Constance Stiring and Olivia Clark", Motion = "That the House congratulate Constance Stiring and Olivia Clark of Onslow College who won the Bronze medal in the GU16 Double at the 2016 Maadi Cup Rowing Regatta and note that it is the frst Onslow College girls medal in more than 40 years." });
 
             return JsonConvert.SerializeObject(new Paper { FrontPage = true, Include = true, OrderType = "Papers", Sections = sections });
