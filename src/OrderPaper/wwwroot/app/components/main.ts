@@ -8,6 +8,7 @@ import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 @Component({
     selector: 'app',
     template: `<h1>Order Paper</h1>
+                    <a [routerLink]="['/test-dragula', 1]" class="pull-right">Test Dragula</a>
                     <div id="spinner"></div>
                     <a href="#" (click)="toggle($event)">
                         {{isExpand ? 'Expand' : 'Collapse'}}
