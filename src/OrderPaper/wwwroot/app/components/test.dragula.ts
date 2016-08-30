@@ -4,23 +4,15 @@ import { OrderPaperService } from '../services/app.services';
 import { BaseComponent } from './base.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MotionSectionComponent } from './sections/motion.section.component';
+import { Dragula } from '../directives/dragula/dragula.directive';
+import { DragulaService } from '../directives/dragula/dragula.provider';
 
 @Component({
     selector: 'order-paper',
-    template: `<h1>{{id}}</h1>
-                <div id="spinner"></div>
-                    <ol type="1" id="{{SortableListId}}" class="list-sortable">
-                        <li class="panel panel-info" *ngFor="let section of orderPaper.Sections; let i = index">
-                            <div class="panel-heading"></div>
-                            <div class="panel-body">
-                                <span><motion-section [index]="i" [motion]="section"></motion-section></span>
-                                <input class="pull-right" type="button" (click)="openPaper(section.Sequence)" value="Edit" />
-                            </div>
-                        </li>
-                    </ol>
-                `,
+    viewProviders: [DragulaService],
+    templateUrl: `app/components/test-dragula.html`,
     styles: [],
-    directives: [MotionSectionComponent],
+    directives: [MotionSectionComponent, Dragula],
     providers: [OrderPaperService]
 })
 export class TestDragulaComponent extends BaseComponent implements OnInit {

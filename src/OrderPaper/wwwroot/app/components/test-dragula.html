@@ -1,0 +1,19 @@
+﻿<h1>{{id}}</h1>
+<div id="spinner"></div>
+<div class='wrapper'>
+    <ol type="1" id="{{SortableListId}}" class="list-sortable">
+        <li class="panel panel-info" *ngFor="let section of orderPaper.Sections; let i = index">
+            <div class='container' [dragula]='"sixth-bag"'>
+                <div>
+                    <span class='handle'>+</span>
+
+                    <div class="panel-heading"></div>
+                    <div class="panel-body">
+                        <span><motion-section [index]="i" [motion]="section"></motion-section></span>
+                        <input class="pull-right" type="button" (click)="openPaper(section.Sequence)" value="Edit" />
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ol>
+</div>
