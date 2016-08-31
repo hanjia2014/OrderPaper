@@ -112,7 +112,20 @@ export class OrderPaperComponent extends BaseComponent implements OnInit {
     }
 
     updateSequence(oldIndex: number, newIndex: number): void {
-        alert("order paper component -- old: " + oldIndex + " new: " + newIndex);
+        var oldSequence = oldIndex + 1;
+        var newSequence = newIndex + 1;
+
+        this.orderPaper.Sections.forEach((section) => {
+            if (section.Sequence == oldSequence) {
+                section.Sequence = newSequence;
+            }
+        });
+
+        this.orderPaper.Sections.forEach((section) => {
+            if (section.Sequence > newSequence) {
+                section.Sequence = section.Sequence + 1;
+            }
+        });
     }
 
     //modal
