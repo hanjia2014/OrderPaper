@@ -65,14 +65,15 @@ export class BaseComponent implements AfterViewInit, ITogglable {
                     //After remove and before all other ending events
                     //Occurs only once when an item is added to a list
                 },
-                update: () => {
+                update: (e: any, ui: any) => {
                     //After receive and before all other ending events
                     //Occurs when the DOM changes for each connected list
                     //This can fire twice because two lists can change (remove from one
                     //list but add to another)
+                    var updatedIndex = ui.item.index();
                     $('.panel', panelList).each((index: any, elem: any) => {
                         var $listItem = $(elem), newIndex = $listItem.index();
-                        this.ListIndex = newIndex;
+                        var motionElem = elem.children[1].childNodes[1].childNodes[0];
                         // Persist the new indices.
                     });
                 },

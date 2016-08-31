@@ -97,6 +97,7 @@ export class OrderPaperComponent extends BaseComponent implements OnInit {
     //save
     save = (e: any) => {
         var t = this.children;
+        //var olElem = $("#" + this.SortableListId)[0].children[0];
         e.preventDefault();
         this.orderPaperService.save(this.orderPaper).subscribe(
             (data: Response) => {
