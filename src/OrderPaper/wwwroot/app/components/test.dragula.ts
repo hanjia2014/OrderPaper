@@ -39,4 +39,8 @@ export class TestDragulaComponent extends BaseComponent implements OnInit {
                 (err: any) => this.error = err);
         });
     }
+
+    updateSequence(oldIndex: number, newIndex: number): void {
+        alert("test dragula component -- old: " + oldIndex + " new: " + newIndex);
+    }
 }

@@ -1,12 +1,11 @@
 ﻿import { AfterViewInit } from '@angular/core';
 import { ITogglable } from '../interfaces/app.interfaces';
 
-export class BaseComponent implements AfterViewInit, ITogglable {
+export abstract class BaseComponent implements AfterViewInit, ITogglable {
     SortableListId: string;
     IsNumberedList: boolean;
     isExpand: boolean;
     spinner: Spinner = new Spinner({ radius: 10 });
-    ListIndex: number;
 
     constructor() {
         this.IsNumberedList = true;
@@ -22,10 +21,11 @@ export class BaseComponent implements AfterViewInit, ITogglable {
                 placeholder: "sortable-hightlight",
                 handle: '.panel-heading',
                 
-                start: function (e: any, ui: any) {
+                start: (e: any, ui: any) => {
                     //Before all other events
                     //Only occurs once each time sorting begins
                     ui.placeholder.height(ui.item.height());
+                    $(this).attr('data-previndex', ui.item.index());
                 },
                 activate: function (e, ui) {
                     //After the start event and before all other events
@@ -71,6 +71,10 @@ export class BaseComponent implements AfterViewInit, ITogglable {
                     //This can fire twice because two lists can change (remove from one
                     //list but add to another)
                     var updatedIndex = ui.item.index();
+                    var oldIndex = $(this).attr('data-previndex');
+                    this.updateSequence(oldIndex, updatedIndex);
+                    $(this).removeAttr('data-previndex');
+
                     $('.panel', panelList).each((index: any, elem: any) => {
                         var $listItem = $(elem), newIndex = $listItem.index();
                         var motionElem = elem.children[1].childNodes[1].childNodes[0];
@@ -112,4 +116,6 @@ export class BaseComponent implements AfterViewInit, ITogglable {
             direction: 'up'
         }, 500);
     }
+
+    abstract updateSequence(oldIndex: number, newIndex: number) : void;
 }

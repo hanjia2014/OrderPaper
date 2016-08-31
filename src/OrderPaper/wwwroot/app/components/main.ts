@@ -51,4 +51,8 @@ export class MainComponent extends BaseComponent implements OnInit {
     openPaper = (id: number) => {
         this.router.navigate(['/order-paper', id]);
     }
+
+    updateSequence(oldIndex: number, newIndex: number): void {
+        alert("main component -- old: " + oldIndex + " new: " + newIndex); 
+    }
 }

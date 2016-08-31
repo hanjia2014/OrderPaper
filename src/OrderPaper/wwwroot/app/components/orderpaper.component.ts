@@ -111,6 +111,10 @@ export class OrderPaperComponent extends BaseComponent implements OnInit {
         this.orderPaperDate = value;
     }
 
+    updateSequence(oldIndex: number, newIndex: number): void {
+        alert("order paper component -- old: " + oldIndex + " new: " + newIndex);
+    }
+
     //modal
     opened() {
 
