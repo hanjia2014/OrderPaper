@@ -10,6 +10,7 @@ import { Tabs } from '../directives/tabs/tabs';
 import { Tab } from '../directives/tabs/tab';
 import { MotionSectionComponent } from './sections/motion.section.component';
 import { Response }     from '@angular/http';
+import { MotionSection }     from '../models/section';
 
 @Component({
     selector: 'order-paper',
@@ -114,18 +115,21 @@ export class OrderPaperComponent extends BaseComponent implements OnInit {
     updateSequence(oldIndex: number, newIndex: number): void {
         var oldSequence = oldIndex + 1;
         var newSequence = newIndex + 1;
+        var selectedSection = new MotionSection();
 
-        this.orderPaper.Sections.forEach((section) => {
-            if (section.Sequence == oldSequence) {
-                section.Sequence = newSequence;
-            }
-        });
+        if (oldSequence > newSequence) {
+            this.orderPaper.Sections.forEach((section) => {
+                if (section.Sequence == oldSequence)
+                    selectedSection = section;
+            });
 
-        this.orderPaper.Sections.forEach((section) => {
-            if (section.Sequence > newSequence) {
-                section.Sequence = section.Sequence + 1;
-            }
-        });
+            this.orderPaper.Sections.forEach((section) => {
+                if (section.Sequence >= newSequence && section.Sequence < oldSequence)
+                    section.Sequence = section.Sequence + 1;
+            });
+
+            selectedSection.Sequence = newSequence;
+        }
     }
 
     //modal
