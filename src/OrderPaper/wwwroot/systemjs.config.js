@@ -10,7 +10,8 @@
         'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
         'rxjs': 'node_modules/rxjs',
         'ts': 'https://npmcdn.com/plugin-typescript@4.0.10/lib/plugin.js',
-        'typescript': 'https://npmcdn.com/typescript@1.9.0-dev.20160409/lib/typescript.js',
+        //'ts': 'node_modules/plugin-typescript/lib/plugin.js',
+        'typescript': 'node_modules/typescript/lib/typescript.js',
     };
     // packages tells the System loader how to load when no filename and/or no extension
     var packages = {
