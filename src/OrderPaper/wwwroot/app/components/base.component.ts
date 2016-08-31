@@ -22,7 +22,7 @@ export class BaseComponent implements AfterViewInit, ITogglable {
                 placeholder: "sortable-hightlight",
                 handle: '.panel-heading',
                 update: function () {
-                    $('.panel', panelList).each(function (index: any, elem: any) {
+                    $('.panel', panelList).each((index: any, elem: any) => {
                         var $listItem = $(elem),
                             newIndex = $listItem.index();
 

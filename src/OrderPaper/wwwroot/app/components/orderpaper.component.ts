@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, ViewChild } from '@angular/core';
+﻿import { Component, OnInit, ViewChild, ViewChildren, QueryList } from '@angular/core';
 import { OrderPaper } from '../models/orderpaper';
 import { OrderPaperService } from '../services/app.services';
 import { BaseComponent } from './base.component';
@@ -69,6 +69,9 @@ export class OrderPaperComponent extends BaseComponent implements OnInit {
     @ViewChild('modals')
     modal: ModalComponent;
 
+    @ViewChildren(MotionSectionComponent)
+    children: QueryList<MotionSectionComponent>;
+
     constructor(private orderPaperService: OrderPaperService, private route: ActivatedRoute) {
         super();
     }
@@ -93,6 +96,7 @@ export class OrderPaperComponent extends BaseComponent implements OnInit {
     }
     //save
     save = (e: any) => {
+        var t = this.children;
         e.preventDefault();
         this.orderPaperService.save(this.orderPaper).subscribe(
             (data: Response) => {
