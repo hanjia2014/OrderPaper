@@ -9,6 +9,7 @@ import { ROUTER_DIRECTIVES, Router } from '@angular/router';
     selector: 'app',
     template: `<h1>Order Paper</h1>
                     <a [routerLink]="['/test-dragula', 1]" class="pull-right">Test Dragula</a>
+                    <a [routerLink]="['/test-accordion']" class="pull-right">Test Accordion</a>
                     <div id="spinner"></div>
                     <a href="#" (click)="toggle($event)">
                         {{isExpand ? 'Expand' : 'Collapse'}}

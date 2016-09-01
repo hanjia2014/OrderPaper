@@ -21,7 +21,7 @@ import { MotionSection }     from '../models/section';
                         <select2 [id]="selectId" [enableSearch]="false" [multiple]="false" [data]="items2" (selected)="selected($event)"></select2>
                         <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker><button type="button" class="btn btn-default" (click)="modal.open()">Add</button>
                         <br/>
-<h2>{{updatedSection.Sequence}}</h2>
+
                     <ol type="1" id="{{SortableListId}}" class="list-sortable">
                         <li class="panel panel-info" *ngFor="let section of orderPaper.Sections; let i = index">
                             <div class="panel-heading" [style.background-color] = "section.IsGroup ? 'pink' : '#d9edf7'"></div>
@@ -68,7 +68,6 @@ export class OrderPaperComponent extends BaseComponent implements OnInit {
     orderPaperDate: Date;
     //test
     updatedSection: MotionSection = new MotionSection();
-
     //modal
     @ViewChild('modals')
     modal: ModalComponent;
@@ -109,7 +108,6 @@ export class OrderPaperComponent extends BaseComponent implements OnInit {
             },
             (err: any) => this.error = err);
     }
-
 
     dateChange = (value: Date) => {
         this.orderPaperDate = value;
