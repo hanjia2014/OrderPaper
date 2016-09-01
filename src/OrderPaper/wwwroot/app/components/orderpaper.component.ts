@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, ViewChild, ViewChildren, QueryList } from '@angular/core';
+﻿import { Component, OnInit, ViewChild, ViewChildren, QueryList, NgZone } from '@angular/core';
 import { OrderPaper } from '../models/orderpaper';
 import { OrderPaperService } from '../services/app.services';
 import { BaseComponent } from './base.component';
@@ -21,7 +21,6 @@ import { MotionSection }     from '../models/section';
                         <select2 [id]="selectId" [enableSearch]="false" [multiple]="false" [data]="items2" (selected)="selected($event)"></select2>
                         <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker><button type="button" class="btn btn-default" (click)="modal.open()">Add</button>
                         <br/>
-
                     <ol type="1" id="{{SortableListId}}" class="list-sortable">
                         <li class="panel panel-info" *ngFor="let section of orderPaper.Sections; let i = index">
                             <div class="panel-heading" [style.background-color] = "section.IsGroup ? 'pink' : '#d9edf7'"></div>
@@ -75,9 +74,10 @@ export class OrderPaperComponent extends BaseComponent implements OnInit {
     @ViewChildren(MotionSectionComponent)
     children: QueryList<MotionSectionComponent>;
 
-    constructor(private orderPaperService: OrderPaperService, private route: ActivatedRoute) {
+    constructor(private orderPaperService: OrderPaperService, private route: ActivatedRoute, private zone: NgZone) {
         super();
     }
+
     ngOnInit() {
         this.SortableListId = 'draggableOrderPaperSectionList';
         var listElm = document.getElementById("spinner");
@@ -118,23 +118,29 @@ export class OrderPaperComponent extends BaseComponent implements OnInit {
         var newSequence = newIndex + 1;
 
 
-            this.orderPaper.Sections.forEach((section) => {
-                if (section.Sequence == oldSequence)
-                    this.updatedSection = section;
-            });
-        //if (oldSequence > newSequence) {
-        //    this.orderPaper.Sections.forEach((section) => {
-        //        if (section.Sequence == oldSequence)
-        //            this.updatedSection = section;
-        //    });
+        this.orderPaper.Sections.forEach((section) => {
+            if (section.Sequence == oldSequence) {
+                this.zone.runOutsideAngular(() => {
+                    this.zone.run(() => {
 
-        //    this.orderPaper.Sections.forEach((section) => {
-        //        if (section.Sequence >= newSequence && section.Sequence < oldSequence)
-        //            section.Sequence = section.Sequence + 1;
-        //    });
+                        if (oldSequence > newSequence) {
+                            this.orderPaper.Sections.forEach((section) => {
+                                if (section.Sequence == oldSequence)
+                                    this.updatedSection = section;
+                            });
 
-        //    this.updatedSection.Sequence = newSequence;
-        //}
+                            this.orderPaper.Sections.forEach((section) => {
+                                if (section.Sequence >= newSequence && section.Sequence < oldSequence)
+                                    section.Sequence = section.Sequence + 1;
+                            });
+
+                            this.updatedSection.Sequence = newSequence;
+                        }
+                    });
+                })
+            }
+        });
+
     }
 
     //modal
