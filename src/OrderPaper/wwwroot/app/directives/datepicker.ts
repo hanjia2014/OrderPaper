@@ -7,7 +7,6 @@
                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                 </div>`,
     styles: [],
-    directives: [],
     providers: []
 })
 export class DatePickerComponent implements AfterViewInit {

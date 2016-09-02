@@ -14,8 +14,6 @@ import {AccordionGroup} from '../directives/accordion/accordiongroup';
                   </button>
                 </p>
              `,
-
-    directives: [Accordion, AccordionGroup]
 })
 export class TestAccordionComponent {
     isGroupOpen = false;

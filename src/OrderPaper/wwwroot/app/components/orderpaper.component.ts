@@ -50,7 +50,6 @@ import { MotionSection }     from '../models/section';
                     <modal-footer [show-default-buttons]="true"></modal-footer>
                 </modal>`,
     styles: [],
-    directives: [Select2Component, DatePickerComponent, MODAL_DIRECTIVES, Tab, Tabs, MotionSectionComponent],
     providers: [OrderPaperService]
 })
 export class OrderPaperComponent extends BaseComponent implements OnInit {

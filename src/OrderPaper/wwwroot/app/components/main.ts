@@ -3,7 +3,7 @@ import { OrderPaper } from '../models/orderpaper';
 import { OrderPaperService } from '../services/app.services';
 import { OrderPaperSummary } from '../models/orderpapersummary';
 import { BaseComponent } from './base.component';
-import { ROUTER_DIRECTIVES, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app',
@@ -24,7 +24,6 @@ import { ROUTER_DIRECTIVES, Router } from '@angular/router';
                         </li>
                     </ol>`,
     styles: [],
-    directives: [],
     providers: [OrderPaperService]
 })
 export class MainComponent extends BaseComponent implements OnInit {

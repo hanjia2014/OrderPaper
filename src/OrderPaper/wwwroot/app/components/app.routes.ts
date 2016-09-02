@@ -1,4 +1,4 @@
-﻿import { provideRouter, RouterConfig, RouterModule, Routes }  from '@angular/router';
+﻿import { RouterModule, Routes }  from '@angular/router';
 import { MainComponent } from './main'
 import { MasterComponent } from './master.component'
 import { OrderPaperComponent } from './orderpaper.component'

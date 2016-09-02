@@ -17,7 +17,6 @@ import { MotionSection } from '../../models/section';
                     </div>
                 </div>`,
     styles: [],
-    directives: [],
     providers: []
 })
 export class MotionSectionComponent implements OnInit {

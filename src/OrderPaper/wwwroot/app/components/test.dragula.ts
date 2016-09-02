@@ -12,7 +12,6 @@ import { DragulaService } from '../directives/dragula/dragula.provider';
     viewProviders: [DragulaService],
     templateUrl: `app/components/test-dragula.html`,
     styles: [],
-    directives: [MotionSectionComponent, Dragula],
     providers: [OrderPaperService]
 })
 export class TestDragulaComponent extends BaseComponent implements OnInit {
