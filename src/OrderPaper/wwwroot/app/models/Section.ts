@@ -1,4 +1,4 @@
-﻿export class SectionBase {
+﻿export class Section {
     Sequence: number;
     Type: string;
     Title: string;
@@ -6,10 +6,28 @@
     HasLine: boolean;
 }
 
-export class MotionSection extends SectionBase {
+export class MotionSection extends Section {
     Date: Date;
     Summary: string;
     Member: string;
     Speeches: string;
     Motion: string;
+}
+
+export class BillSection extends Section {
+    Number: string;
+    Member: string;
+    Stage: string;
+    IsCurrentSittingWeek: boolean;
+    IsFollowingSittingWeek: boolean;
+    IsMajorityAmendments: boolean;
+    IsExtendedSittingHours: boolean;
+    Speeches: string;
+    LatestEvent: string;
+}
+
+export class ReportSection extends Section {
+    Shoulder: string;
+    Committee: string;
+    LatestEvent: string;
 }

@@ -22,4 +22,24 @@ namespace OrderPaper.Models
         public string Speeches { get; set; }
         public string Motion { get; set; }
     }
+
+    public class BillSection : Section
+    {
+        public string Number;
+        public string Member;
+        public string Stage;
+        public bool IsCurrentSittingWeek;
+        public bool IsFollowingSittingWeek;
+        public bool IsMajorityAmendments;
+        public bool IsExtendedSittingHours;
+        public string Speeches;
+        public string LatestEvent;
+    }
+
+    public class ReportSection : Section
+    {
+        public string Shoulder;
+        public string Committee;
+        public string LatestEvent;
+    }
 }

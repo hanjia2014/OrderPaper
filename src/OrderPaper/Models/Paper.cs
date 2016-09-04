@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace OrderPaper.Models
 {
@@ -12,6 +9,6 @@ namespace OrderPaper.Models
         public string OrderType { get; set; }
         public string Details { get; set; }
         public string Speeches { get; set; }
-        public List<MotionSection> Sections { get; set; }
+        public List<Section> Sections { get; set; }
     }
 }

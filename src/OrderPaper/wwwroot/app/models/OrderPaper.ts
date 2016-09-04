@@ -1,5 +1,5 @@
 ﻿import { Status } from './constants';
-import { MotionSection } from './Section';
+import { Section } from './Section';
 
 export class OrderPaper {
     FrontPage: boolean;
@@ -7,5 +7,5 @@ export class OrderPaper {
     OrderType: string;
     Details: string;
     Speeches: string;
-    Sections: Array<MotionSection>;
+    Sections: Array<Section>;
 }
