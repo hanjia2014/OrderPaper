@@ -4,7 +4,6 @@ import { MotionSection } from '../../models/section';
 @Component({
     selector: 'motion-section',
     template: `<h1>Motion -- {{motion.Sequence}}</h1>
-                index: {{index}}
                 <div class="container">
                     <div class="row">
                         Group: <input type="checkbox" [(ngModel)]="motion.IsGroup">
