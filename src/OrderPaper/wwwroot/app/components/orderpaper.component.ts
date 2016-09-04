@@ -10,7 +10,7 @@ import { Tabs } from '../directives/tabs/tabs';
 import { Tab } from '../directives/tabs/tab';
 import { MotionSectionComponent } from './sections/motion.section.component';
 import { Response }     from '@angular/http';
-import { MotionSection }     from '../models/section';
+import { MotionSection, Section }     from '../models/section';
 
 @Component({
     selector: 'order-paper',
@@ -67,7 +67,7 @@ export class OrderPaperComponent extends BaseComponent implements OnInit {
     //datepicker
     orderPaperDate: Date;
     //test
-    updatedSection: MotionSection = new MotionSection();
+    updatedSection: Section = new Section();
     //modal
     @ViewChild('modals')
     modal: ModalComponent;
@@ -101,7 +101,7 @@ export class OrderPaperComponent extends BaseComponent implements OnInit {
     //save
     save = (e: any) => {
         var t = this.children;
-        //var olElem = $("#" + this.SortableListId)[0].children[0];
+        var paperString = JSON.stringify(this.orderPaper);
         e.preventDefault();
         this.orderPaperService.save(this.orderPaper).subscribe(
             (data: Response) => {
