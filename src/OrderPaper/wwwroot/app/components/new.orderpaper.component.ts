@@ -13,11 +13,24 @@ import { OrderType }     from '../models/ordertype';
                 <div id="spinner"></div>
                 <tabs>
                     <tab [title]="'Details'">
-                        <select2 [id]="'orderPaperStatus'" [placeholder]="'status'" [enableSearch]="false" [multiple]="false" [data]="orderPaperStatus" (selected)="selected($event)"></select2>
-                        <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker><br/>
-                        <input [(ngModel)] = "orderPaper.OrderPaperNumber" placeholder="Order Paper Number" /><br/>
-                        <input [(ngModel)] = "orderPaper.SittingHours" placeholder="Sitting Hours" /><br/>
+                        <div class="row">
+                            <div class="col-md-6">
+                                Order Paper For: <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker>
+                            </div>
+                            <div class="col-md-6">
+                                Order Paper Number: <input [(ngModel)] = "orderPaper.OrderPaperNumber" placeholder="Order Paper Number" />
+                            </div>
+                        </div>
 
+                        <div class="row">
+                            <div class="col-md-6">
+                                Order Paper Status: <select2 [id]="'orderPaperStatus'" [placeholder]="'status'" [enableSearch]="false" [multiple]="false" [data]="orderPaperStatus" (selected)="selected($event)"></select2>
+                            </div>
+                            <div class="col-md-6">
+                                Sitting Hours: <input [(ngModel)] = "orderPaper.SittingHours" placeholder="Sitting Hours" /><br/>
+                            </div>
+                        </div>
+                        
                         <br/>
                         <ol type="1" id="{{SortableListId}}" class="list-sortable">
                             <li class="panel panel-info" *ngFor="let orderType of orderPaper.OrderTypes; let i = index">

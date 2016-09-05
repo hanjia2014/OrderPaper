@@ -2,7 +2,7 @@
 
 @Component({
     selector: 'date-picker',
-    template: `<div class="input-group date" id="{{id}}">
+    template: `<div class="input-group date" style="max-width: 250px" id="{{id}}">
                     <input type="text" [(ngModel)]="selectedDate" class="form-control" id="{{id}}-dateValue" >
                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                 </div>`,
