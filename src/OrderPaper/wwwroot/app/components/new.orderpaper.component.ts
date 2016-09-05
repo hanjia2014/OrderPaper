@@ -3,8 +3,6 @@ import { OrderPaper } from '../models/orderpaper';
 import { OrderPaperService } from '../services/app.services';
 import { BaseComponent } from './base.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MODAL_DIRECTIVES, ModalComponent } from '../directives/ng2-bs3-modal/ng2-bs3-modal';
-import { MotionSectionComponent } from './sections/motion.section.component';
 import { Response }     from '@angular/http';
 import { MotionSection, Section }     from '../models/section';
 import { OrderType }     from '../models/ordertype';
@@ -25,8 +23,7 @@ import { OrderType }     from '../models/ordertype';
                             <li class="panel panel-info" *ngFor="let orderType of orderPaper.OrderTypes; let i = index">
                                 <div class="panel-heading"></div>
                                 <div class="panel-body">
-                                    {{orderType.Name}}
-                                    <input class="pull-right" type="button" (click)="openPaper(section.Sequence)" value="Edit" />
+                                    <order-type [orderType] = "orderType"></order-type>
                                 </div>
                             </li>
                         </ol>
@@ -39,16 +36,7 @@ import { OrderType }     from '../models/ordertype';
                     <tab [title]="'Preview'">
                     </tab>
                 </tabs>
-                <modal [animation]="animation" [keyboard]="keyboard" [backdrop]="backdrop" (onClose)="closed()" (onDismiss)="dismissed()"
-                       (onOpen)="opened()" [cssClass]="cssClass" #modal>
-                    <modal-header [show-close]="true">
-                        <h4 class="modal-title">I'm a modal!</h4>
-                    </modal-header>
-                    <modal-body>
-                        <input [(ngModel)]="orderPaper.Date" />
-                    </modal-body>
-                    <modal-footer [show-default-buttons]="true"></modal-footer>
-                </modal>`,
+                `,
     styles: [],
     providers: [OrderPaperService]
 })
@@ -65,14 +53,6 @@ export class NewOrderPaperComponent extends BaseComponent implements OnInit {
     spinnerElm: any = document.getElementById("spinner");
     //datepicker
     orderPaperDate: Date;
-    //test
-    updatedSection: Section = new Section();
-    //modal
-    @ViewChild('modals')
-    modal: ModalComponent;
-
-    @ViewChildren(MotionSectionComponent)
-    children: QueryList<MotionSectionComponent>;
 
     constructor(private orderPaperService: OrderPaperService, private route: ActivatedRoute, private zone: NgZone) {
         super();
@@ -94,7 +74,6 @@ export class NewOrderPaperComponent extends BaseComponent implements OnInit {
     }
     //save
     save = (e: any) => {
-        var t = this.children;
         var paperString = JSON.stringify(this.orderPaper);
         e.preventDefault();
         this.orderPaperService.save(this.orderPaper).subscribe(
@@ -111,24 +90,5 @@ export class NewOrderPaperComponent extends BaseComponent implements OnInit {
     updateSequence(oldIndex: number, newIndex: number): void {
         var oldSequence = oldIndex + 1;
         var newSequence = newIndex + 1;
-    }
-
-    //modal
-    opened() {
-
-    }
-
-    navigate() {
-
-    }
-
-    open() {
-        this.modal.open();
-    }
-    closed() {
-
-    }
-    dismissed() {
-
     }
 }

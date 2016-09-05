@@ -17,10 +17,12 @@ export class OrderPaper {
         this.OrderTypes = new Array<OrderType>();
 
         var orderType = new OrderType();
+        orderType.IsFrontPage = true;
         orderType.Name = "Oral questions";
         this.OrderTypes.push(orderType);
 
         orderType = new OrderType();
+        orderType.Include = true;
         orderType.Name = "Select committee reports";
         this.OrderTypes.push(orderType);
 

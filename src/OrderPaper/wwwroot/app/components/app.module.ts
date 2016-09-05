@@ -6,6 +6,7 @@ import { Response }     from '@angular/http';
 import { MainComponent }  from './main';
 import { OrderPaperComponent }  from './orderpaper.component';
 import { NewOrderPaperComponent } from './new.orderpaper.component';
+import { OrderPaperTypeComponent } from './orderpapertype.component';
 import { MasterComponent } from './master.component'
 import { TestDragulaComponent } from './test.dragula'
 import { routing }        from './app.routes';
@@ -22,7 +23,7 @@ import { TestAccordionComponent } from './test.accordion';
 
 @NgModule({
     imports: [BrowserModule, HttpModule, FormsModule, routing],
-    declarations: [MasterComponent, MainComponent, OrderPaperComponent, TestDragulaComponent, NewOrderPaperComponent, Select2Component, DatePickerComponent, MODAL_DIRECTIVES, Tabs, Tab, MotionSectionComponent, BillSectionComponent, ReportSectionComponent, Dragula, TestAccordionComponent],
+    declarations: [MasterComponent, MainComponent, OrderPaperComponent, OrderPaperTypeComponent, TestDragulaComponent, NewOrderPaperComponent, Select2Component, DatePickerComponent, MODAL_DIRECTIVES, Tabs, Tab, MotionSectionComponent, BillSectionComponent, ReportSectionComponent, Dragula, TestAccordionComponent],
     bootstrap: [MasterComponent],
     providers: []
 })
