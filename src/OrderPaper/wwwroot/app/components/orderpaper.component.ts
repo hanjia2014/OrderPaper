@@ -58,7 +58,7 @@ export class OrderPaperComponent extends BaseComponent implements OnInit {
     //select2
     selectedItem: any;
     selectId: string;
-    items2 = [{ id: "Hearing Of Evidence", text: "Hearing Of Evidence" }, { id: "Consideration", text: "Consideration" }, { id: "Free Text", text: "Free Text" }];
+    items2 = [{ id: "Bill", text: "Bill" }, { id: "Motion", text: "Motion" }, { id: "Report", text: "Report" }];
 
     //datepicker
     orderPaperDate: Date;
