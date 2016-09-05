@@ -22,7 +22,10 @@ import { Router } from '@angular/router';
                                 <input class="pull-right" type="button" (click)="openPaper(summary.Number)" value="Edit" />
                             </div>
                         </li>
-                    </ol>`,
+                    </ol>
+                    <div class="row">
+                        <input type="button" value="Create" (click)="createOrderPaper()" />
+                    </div>`,
     styles: [],
     providers: [OrderPaperService]
 })
@@ -54,5 +57,9 @@ export class MainComponent extends BaseComponent implements OnInit {
 
     updateSequence(oldIndex: number, newIndex: number): void {
         alert("main component -- old: " + oldIndex + " new: " + newIndex); 
+    }
+
+    createOrderPaper() {
+        this.router.navigate(['/new-order-paper']);
     }
 }

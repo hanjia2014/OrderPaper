@@ -1,5 +1,6 @@
 ﻿import { Status } from './constants';
 import { Section } from './Section';
+import { OrderType } from './OrderType';
 
 export class OrderPaper {
     FrontPage: boolean;
@@ -8,4 +9,5 @@ export class OrderPaper {
     Details: string;
     Speeches: string;
     Sections: Array<Section>;
+    OrderTypes: Array<OrderType>;
 }

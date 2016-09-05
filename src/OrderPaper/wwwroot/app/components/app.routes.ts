@@ -1,9 +1,10 @@
 ﻿import { RouterModule, Routes }  from '@angular/router';
-import { MainComponent } from './main'
-import { MasterComponent } from './master.component'
-import { OrderPaperComponent } from './orderpaper.component'
-import { TestDragulaComponent } from './test.dragula'
-import { TestAccordionComponent } from './test.accordion'
+import { MainComponent } from './main';
+import { MasterComponent } from './master.component';
+import { OrderPaperComponent } from './orderpaper.component';
+import { NewOrderPaperComponent } from './new.orderpaper.component';
+import { TestDragulaComponent } from './test.dragula';
+import { TestAccordionComponent } from './test.accordion';
 
 const appRoutes: Routes = [
     {
@@ -26,6 +27,10 @@ const appRoutes: Routes = [
     {
         path: 'test-accordion',
         component: TestAccordionComponent
+    },
+    {
+        path: 'new-order-paper',
+        component: NewOrderPaperComponent
     }
 ];
 
