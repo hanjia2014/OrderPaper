@@ -12,6 +12,10 @@ export class MotionSection extends Section {
     Member: string;
     Speeches: string;
     Motion: string;
+    constructor() {
+        super();
+        this.Type = "Motion";
+    }
 }
 
 export class BillSection extends Section {
@@ -24,10 +28,19 @@ export class BillSection extends Section {
     IsExtendedSittingHours: boolean;
     Speeches: string;
     LatestEvent: string;
+
+    constructor() {
+        super();
+        this.Type = "Bill";
+    }
 }
 
 export class ReportSection extends Section {
     Shoulder: string;
     Committee: string;
     LatestEvent: string;
+    constructor() {
+        super();
+        this.Type = "Report";
+    }
 }

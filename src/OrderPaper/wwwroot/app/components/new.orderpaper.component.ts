@@ -17,13 +17,13 @@ import { OrderType }     from '../models/ordertype';
                         <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker><br/>
                         <input [(ngModel)] = "orderPaper.OrderPaperNumber" placeholder="Order Paper Number" /><br/>
                         <input [(ngModel)] = "orderPaper.SittingHours" placeholder="Sitting Hours" /><br/>
-                        <button type="button" class="btn btn-default" (click)="modal.open()">Add</button>
+
                         <br/>
                         <ol type="1" id="{{SortableListId}}" class="list-sortable">
                             <li class="panel panel-info" *ngFor="let orderType of orderPaper.OrderTypes; let i = index">
                                 <div class="panel-heading"></div>
                                 <div class="panel-body">
-                                    <order-type [orderType] = "orderType"></order-type>
+                                    <order-type [orderType] = "orderType" [index]="i"></order-type>
                                 </div>
                             </li>
                         </ol>
