@@ -16,22 +16,23 @@ import { OrderType }     from '../models/ordertype';
                 <tabs>
                     <tab [title]="'Details'">
                         <select2 [id]="'orderPaperStatus'" [placeholder]="'status'" [enableSearch]="false" [multiple]="false" [data]="orderPaperStatus" (selected)="selected($event)"></select2>
-                        <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker><button type="button" class="btn btn-default" (click)="modal.open()">Add</button>
+                        <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker><br/>
+                        <input [(ngModel)] = "orderPaper.OrderPaperNumber" placeholder="Order Paper Number" /><br/>
+                        <input [(ngModel)] = "orderPaper.SittingHours" placeholder="Sitting Hours" /><br/>
+                        <button type="button" class="btn btn-default" (click)="modal.open()">Add</button>
                         <br/>
                     <ol type="1" id="{{SortableListId}}" class="list-sortable">
-                        <li class="panel panel-info" *ngFor="let section of orderPaper.Sections; let i = index">
-                            <div class="panel-heading" [style.background-color] = "section.IsGroup ? 'pink' : '#d9edf7'"></div>
+                        <li class="panel panel-info" *ngFor="let orderType of orderPaper.OrderTypes; let i = index">
+                            <div class="panel-heading"></div>
                             <div class="panel-body">
-                                <span *ngIf="section.Type == 'Motion'"><motion-section [index]="i" [motion]="section"></motion-section></span>
-                                <span *ngIf="section.Type == 'Bill'"><bill-section [index]="i" [bill]="section"></bill-section></span>
-                                <span *ngIf="section.Type == 'Report'"><report-section [index]="i" [report]="section"></report-section></span>
+                                {{orderType.Name}}
                                 <input class="pull-right" type="button" (click)="openPaper(section.Sequence)" value="Edit" />
                             </div>
                         </li>
                     </ol>
 
                     <a class="btn btn-lg save-button" (click)="save($event)">
-                        <span class="glyphicon glyphicon-floppy-disk"></span> Save Agenda
+                        <span class="glyphicon glyphicon-floppy-disk"></span> Save
                     </a>
 
                     </tab>
@@ -78,6 +79,7 @@ export class NewOrderPaperComponent extends BaseComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.SortableListId = 'draggableOrderPaperTypeList';
         if (!this.orderPaper) {
             this.initialiseOrderPaper();
         }
@@ -109,31 +111,6 @@ export class NewOrderPaperComponent extends BaseComponent implements OnInit {
     updateSequence(oldIndex: number, newIndex: number): void {
         var oldSequence = oldIndex + 1;
         var newSequence = newIndex + 1;
-
-
-        this.orderPaper.Sections.forEach((section) => {
-            if (section.Sequence == oldSequence) {
-                this.zone.runOutsideAngular(() => {
-                    this.zone.run(() => {
-
-                        if (oldSequence > newSequence) {
-                            this.orderPaper.Sections.forEach((section) => {
-                                if (section.Sequence == oldSequence)
-                                    this.updatedSection = section;
-                            });
-
-                            this.orderPaper.Sections.forEach((section) => {
-                                if (section.Sequence >= newSequence && section.Sequence < oldSequence)
-                                    section.Sequence = section.Sequence + 1;
-                            });
-
-                            this.updatedSection.Sequence = newSequence;
-                        }
-                    });
-                })
-            }
-        });
-
     }
 
     //modal

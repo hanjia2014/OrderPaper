@@ -10,6 +10,8 @@ export class OrderPaper {
     Speeches: string;
     Sections: Array<Section>;
     OrderTypes: Array<OrderType>;
+    OrderPaperNumber: string;
+    SittingHours: string;
 
     constructor() {
         this.OrderTypes = new Array<OrderType>();
