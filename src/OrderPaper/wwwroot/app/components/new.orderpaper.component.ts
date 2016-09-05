@@ -21,19 +21,19 @@ import { OrderType }     from '../models/ordertype';
                         <input [(ngModel)] = "orderPaper.SittingHours" placeholder="Sitting Hours" /><br/>
                         <button type="button" class="btn btn-default" (click)="modal.open()">Add</button>
                         <br/>
-                    <ol type="1" id="{{SortableListId}}" class="list-sortable">
-                        <li class="panel panel-info" *ngFor="let orderType of orderPaper.OrderTypes; let i = index">
-                            <div class="panel-heading"></div>
-                            <div class="panel-body">
-                                {{orderType.Name}}
-                                <input class="pull-right" type="button" (click)="openPaper(section.Sequence)" value="Edit" />
-                            </div>
-                        </li>
-                    </ol>
+                        <ol type="1" id="{{SortableListId}}" class="list-sortable">
+                            <li class="panel panel-info" *ngFor="let orderType of orderPaper.OrderTypes; let i = index">
+                                <div class="panel-heading"></div>
+                                <div class="panel-body">
+                                    {{orderType.Name}}
+                                    <input class="pull-right" type="button" (click)="openPaper(section.Sequence)" value="Edit" />
+                                </div>
+                            </li>
+                        </ol>
 
-                    <a class="btn btn-lg save-button" (click)="save($event)">
-                        <span class="glyphicon glyphicon-floppy-disk"></span> Save
-                    </a>
+                        <a class="btn btn-lg save-button" (click)="save($event)">
+                            <span class="glyphicon glyphicon-floppy-disk"></span> Save
+                        </a>
 
                     </tab>
                     <tab [title]="'Preview'">
