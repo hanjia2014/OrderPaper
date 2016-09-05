@@ -5,4 +5,8 @@ export class OrderType {
     Include: boolean;
     Name: string;
     Sections: Array<Section>;
+
+    constructor() {
+        this.Sections = new Array<Section>();
+    }
 }

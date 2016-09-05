@@ -7,6 +7,7 @@ import { MODAL_DIRECTIVES, ModalComponent } from '../directives/ng2-bs3-modal/ng
 import { MotionSectionComponent } from './sections/motion.section.component';
 import { Response }     from '@angular/http';
 import { MotionSection, Section }     from '../models/section';
+import { OrderType }     from '../models/ordertype';
 
 @Component({
     selector: 'new-order-paper',
@@ -51,7 +52,7 @@ import { MotionSection, Section }     from '../models/section';
     providers: [OrderPaperService]
 })
 export class NewOrderPaperComponent extends BaseComponent implements OnInit {
-    orderPaper: OrderPaper = new OrderPaper();
+    orderPaper: OrderPaper;
     error: any;
     sub: any;
     id: number;
@@ -59,7 +60,8 @@ export class NewOrderPaperComponent extends BaseComponent implements OnInit {
     selectedItem: any;
     selectId: string;
     orderPaperStatus = [{ id: "Provisional", text: "Provisional" }, { id: "Final", text: "Final" }];
-
+    //spin element
+    spinnerElm: any = document.getElementById("spinner");
     //datepicker
     orderPaperDate: Date;
     //test
@@ -76,23 +78,17 @@ export class NewOrderPaperComponent extends BaseComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.SortableListId = 'draggableOrderPaperSectionList';
-        //var listElm = document.getElementById("spinner");
-        //this.spinner.spin(listElm);
-
-        //this.sub = this.route.params.subscribe(params => {
-        //    this.id = +params['id'];
-        //    this.selectId = 'mySel' + this.id;
-        //    this.orderPaperService.getOrderPaper(this.id).subscribe(
-        //        (data: OrderPaper) => {
-        //            Object.assign(this.orderPaper, data);
-        //            this.spinner.stop();
-        //        },
-        //        (err: any) => this.error = err);
-        //});
+        if (!this.orderPaper) {
+            this.initialiseOrderPaper();
+        }
     }
     public selected(value: any): void {
         this.selectedItem = value;
+    }
+
+    //initialise
+    initialiseOrderPaper() {
+        this.orderPaper = new OrderPaper();
     }
     //save
     save = (e: any) => {
