@@ -15,12 +15,14 @@ export class Select2Component implements AfterViewInit {
     id: string;
     @Input()
     enableSearch: boolean;
+    @Input()
+    placeholder: string;
 
     @Output() selected = new EventEmitter();
 
     ngAfterViewInit() {
         var options = {
-            placeholder: "Please select",
+            placeholder: this.placeholder ? this.placeholder : "Please select",
             dropdownAutoWidth: true,
             allowClear: true,
             data: this.data,

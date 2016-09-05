@@ -14,7 +14,7 @@ import { MotionSection, Section }     from '../models/section';
                 <div id="spinner"></div>
                 <tabs>
                     <tab [title]="'Details'">
-                        <select2 [id]="selectId" [enableSearch]="false" [multiple]="false" [data]="items2" (selected)="selected($event)"></select2>
+                        <select2 [id]="'orderPaperStatus'" [placeholder]="'status'" [enableSearch]="false" [multiple]="false" [data]="orderPaperStatus" (selected)="selected($event)"></select2>
                         <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker><button type="button" class="btn btn-default" (click)="modal.open()">Add</button>
                         <br/>
                     <ol type="1" id="{{SortableListId}}" class="list-sortable">
@@ -53,11 +53,12 @@ import { MotionSection, Section }     from '../models/section';
 export class NewOrderPaperComponent extends BaseComponent implements OnInit {
     orderPaper: OrderPaper = new OrderPaper();
     error: any;
-    
+    sub: any;
+    id: number;
     //select2
     selectedItem: any;
     selectId: string;
-    items2 = [{ id: "Bill", text: "Bill" }, { id: "Motion", text: "Motion" }, { id: "Report", text: "Report" }];
+    orderPaperStatus = [{ id: "Provisional", text: "Provisional" }, { id: "Final", text: "Final" }];
 
     //datepicker
     orderPaperDate: Date;
@@ -75,7 +76,20 @@ export class NewOrderPaperComponent extends BaseComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.SortableListId = 'draggableOrderPaperSectionList';
+        //var listElm = document.getElementById("spinner");
+        //this.spinner.spin(listElm);
 
+        //this.sub = this.route.params.subscribe(params => {
+        //    this.id = +params['id'];
+        //    this.selectId = 'mySel' + this.id;
+        //    this.orderPaperService.getOrderPaper(this.id).subscribe(
+        //        (data: OrderPaper) => {
+        //            Object.assign(this.orderPaper, data);
+        //            this.spinner.stop();
+        //        },
+        //        (err: any) => this.error = err);
+        //});
     }
     public selected(value: any): void {
         this.selectedItem = value;
@@ -144,5 +158,4 @@ export class NewOrderPaperComponent extends BaseComponent implements OnInit {
     dismissed() {
 
     }
-
 }
