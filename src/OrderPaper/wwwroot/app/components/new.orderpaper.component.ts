@@ -13,6 +13,7 @@ import { OrderType }     from '../models/ordertype';
                 <div id="spinner"></div>
                 <tabs>
                     <tab [title]="'Details'">
+<div class="form">
                         <div class="row">
                             <div class="col-md-6">
                                 Order Paper For: <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker>
@@ -44,9 +45,12 @@ import { OrderType }     from '../models/ordertype';
                         <a class="btn btn-lg save-button" (click)="save($event)">
                             <span class="glyphicon glyphicon-floppy-disk"></span> Save
                         </a>
-
+</div>
                     </tab>
                     <tab [title]="'Preview'">
+                        <div class="form">
+                            <a class="btn">Save</a>
+                        </div>
                     </tab>
                 </tabs>
                 `,
