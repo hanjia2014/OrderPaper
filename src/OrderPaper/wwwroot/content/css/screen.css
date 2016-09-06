@@ -360,9 +360,9 @@ h4 {
     width: 27px;
 }
 
-.icon-pdf:hover {
-    cursor: pointer;
-}
+    .icon-pdf:hover {
+        cursor: pointer;
+    }
 
 .objectiveDocument-li {
     height: 25px;
@@ -377,9 +377,9 @@ h4 {
     float: left;
 }
 
-.icon-pdf-download:hover {
-    cursor: pointer;
-}
+    .icon-pdf-download:hover {
+        cursor: pointer;
+    }
 
 .agendaDocument .icon-pdf-download {
     margin-top: 3px;
@@ -1111,12 +1111,14 @@ a.disabled {
     pointer-events: none;
     cursor: default;
 }
+
 .closed-iob {
     color: rgb(132, 132, 132) !important;
 }
-.closed-iob:hover {
-    color: #333333 !important;
-}
+
+    .closed-iob:hover {
+        color: #333333 !important;
+    }
 
 .unavaliable-briefcase {
     color: rgb(132, 132, 132);
@@ -1163,13 +1165,13 @@ a.disabled {
     background-color: #b3d9d9;
 }
 
-#documents-list .row:hover * {
-    background-color: #b3d9d9;
-}
+    #documents-list .row:hover * {
+        background-color: #b3d9d9;
+    }
 
- .member-search-result-container {
-     position: relative;
-     padding: 1em;   
+.member-search-result-container {
+    position: relative;
+    padding: 1em;
 }
 
 #member-search-result .row div.icon-pdf-download {
@@ -1182,14 +1184,14 @@ a.disabled {
     padding-left: 10px;
 }
 
-#member-search-result .row div.search-result-item:hover {
-    cursor: pointer;
-    background-color: #b3d9d9;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-    border-top-color: #80bfbf;
-    border-bottom-color: #80bfbf;
-}
+    #member-search-result .row div.search-result-item:hover {
+        cursor: pointer;
+        background-color: #b3d9d9;
+        border-top-width: 1px;
+        border-bottom-width: 1px;
+        border-top-color: #80bfbf;
+        border-bottom-color: #80bfbf;
+    }
 
 #member-search-result .row {
     border-top: 1px solid #e5e5e5;
