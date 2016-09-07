@@ -20,10 +20,11 @@ import { Tab }                                      from '../directives/tabs/tab
 import { MotionSectionComponent }                   from './sections/motion.section.component';
 import { Dragula }                                  from '../directives/dragula/dragula.directive';
 import { TestAccordionComponent }                   from './test.accordion';
+import { VerticalMenuComponent }                    from '../directives/vertical-menu/vertical-menu';
 
 @NgModule({
     imports: [BrowserModule, HttpModule, FormsModule, routing],
-    declarations: [MasterComponent, MainComponent, OrderPaperComponent, OrderPaperTypeComponent, TestDragulaComponent, NewOrderPaperComponent, Select2Component, DatePickerComponent, MODAL_DIRECTIVES, Tabs, Tab, MotionSectionComponent, BillSectionComponent, ReportSectionComponent, Dragula, TestAccordionComponent],
+    declarations: [MasterComponent, MainComponent, OrderPaperComponent, OrderPaperTypeComponent, TestDragulaComponent, NewOrderPaperComponent, Select2Component, DatePickerComponent, MODAL_DIRECTIVES, Tabs, Tab, MotionSectionComponent, BillSectionComponent, ReportSectionComponent, Dragula, TestAccordionComponent, VerticalMenuComponent],
     bootstrap: [MasterComponent],
     providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }]
 })

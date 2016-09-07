@@ -45,14 +45,12 @@ import { OrderType }                                                        from
                             </div>
                         </tab>
                         <tab [title]="'Preview'">
-                            <div class="form">
-                                <a class="btn">Save</a>
-                            </div>
+                            <vertical-menu></vertical-menu>
                         </tab>
                     </tabs>
                 </div>
                 <br/>
-                <div class="form" style="margin-top:120px">
+                <div class="form" style="margin-top:400px">
                     <ol type="1" id="{{SortableListId}}" class="list-sortable">
                         <li class="panel panel-info" *ngFor="let orderType of orderPaper.OrderTypes; let i = index">
                             <div class="panel-heading"></div>
