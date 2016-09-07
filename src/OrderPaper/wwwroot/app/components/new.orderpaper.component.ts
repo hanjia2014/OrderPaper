@@ -50,7 +50,7 @@ import { OrderType }                                                        from
                     </tabs>
                 </div>
                 <br/>
-                <div class="form" style="margin-top:400px">
+                <div class="form" style="margin-top:240px">
                     <ol type="1" id="{{SortableListId}}" class="list-sortable">
                         <li class="panel panel-info" *ngFor="let orderType of orderPaper.OrderTypes; let i = index">
                             <div class="panel-heading"></div>
