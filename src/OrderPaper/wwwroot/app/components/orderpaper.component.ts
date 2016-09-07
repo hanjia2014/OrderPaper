@@ -1,12 +1,12 @@
-﻿import { Component, OnInit, ViewChild, ViewChildren, QueryList, NgZone } from '@angular/core';
-import { OrderPaper } from '../models/orderpaper';
-import { OrderPaperService } from '../services/app.services';
-import { BaseComponent } from './base.component';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MODAL_DIRECTIVES, ModalComponent } from '../directives/ng2-bs3-modal/ng2-bs3-modal';
-import { MotionSectionComponent } from './sections/motion.section.component';
-import { Response }     from '@angular/http';
-import { MotionSection, Section }     from '../models/section';
+﻿import { Component, OnInit, ViewChild, ViewChildren, QueryList, NgZone }    from '@angular/core';
+import { Response }                                                         from '@angular/http';
+import { ActivatedRoute, Router }                                           from '@angular/router';
+import { OrderPaper }                                                       from '../models/orderpaper';
+import { OrderPaperService }                                                from '../services/app.services';
+import { BaseComponent }                                                    from './base.component';
+import { MODAL_DIRECTIVES, ModalComponent }                                 from '../directives/ng2-bs3-modal/ng2-bs3-modal';
+import { MotionSectionComponent }                                           from './sections/motion.section.component';
+import { MotionSection, Section }                                           from '../models/section';
 
 @Component({
     selector: 'order-paper',

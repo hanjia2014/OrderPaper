@@ -1,5 +1,5 @@
-﻿import { AfterViewInit } from '@angular/core';
-import { ITogglable } from '../interfaces/app.interfaces';
+﻿import { AfterViewInit }    from '@angular/core';
+import { ITogglable }       from '../interfaces/app.interfaces';
 
 export abstract class BaseComponent implements AfterViewInit, ITogglable {
     SortableListId: string;

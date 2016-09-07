@@ -1,11 +1,11 @@
 ﻿import { Component, OnInit, ViewChild, ViewChildren, QueryList, NgZone, Input } from '@angular/core';
-import { OrderPaper } from '../models/orderpaper';
-import { BaseComponent } from './base.component';
-import { MODAL_DIRECTIVES, ModalComponent } from '../directives/ng2-bs3-modal/ng2-bs3-modal';
-import { MotionSectionComponent } from './sections/motion.section.component';
-import { Response }     from '@angular/http';
-import { MotionSection, Section, BillSection, ReportSection }     from '../models/section';
-import { OrderType }     from '../models/ordertype';
+import { Response }                                                             from '@angular/http';
+import { OrderPaper }                                                           from '../models/orderpaper';
+import { BaseComponent }                                                        from './base.component';
+import { MODAL_DIRECTIVES, ModalComponent }                                     from '../directives/ng2-bs3-modal/ng2-bs3-modal';
+import { MotionSectionComponent }                                               from './sections/motion.section.component';
+import { MotionSection, Section, BillSection, ReportSection }                   from '../models/section';
+import { OrderType }                                                            from '../models/ordertype';
 
 @Component({
     selector: 'order-type',

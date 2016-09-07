@@ -1,5 +1,5 @@
-﻿import {Component} from '@angular/core';
-import {Accordion} from '../directives/accordion/accordion';
+﻿import {Component}      from '@angular/core';
+import {Accordion}      from '../directives/accordion/accordion';
 import {AccordionGroup} from '../directives/accordion/accordiongroup';
 
 @Component({

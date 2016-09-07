@@ -1,9 +1,9 @@
-﻿import { Component, OnInit } from '@angular/core';
-import { OrderPaper } from '../models/orderpaper';
-import { OrderPaperService } from '../services/app.services';
-import { OrderPaperSummary } from '../models/orderpapersummary';
-import { BaseComponent } from './base.component';
-import { Router } from '@angular/router';
+﻿import { Component, OnInit }    from '@angular/core';
+import { OrderPaper }           from '../models/orderpaper';
+import { OrderPaperService }    from '../services/app.services';
+import { OrderPaperSummary }    from '../models/orderpapersummary';
+import { BaseComponent }        from './base.component';
+import { Router }               from '@angular/router';
 
 @Component({
     selector: 'app',
