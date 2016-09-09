@@ -12,7 +12,7 @@ export * from './components/modal-body';
 export * from './components/modal-footer';
 export * from './components/modal-instance';
 
-export const MODAL_DIRECTIVES: Type[] = [
+export const MODAL_DIRECTIVES = [
     ModalComponent,
     ModalHeaderComponent,
     ModalBodyComponent,
