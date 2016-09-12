@@ -1,9 +1,12 @@
 ﻿<h1>{{id}}</h1>
 <div id="spinner"></div>
-<div class='wrapper'>
-    <ol type="1" id="{{SortableListId}}" class="list-sortable">
+<div class="container">
+    <div class='container' [dragula]='"first-bag"'>
+        <div>Drop here</div>
+    </div>
+    <ol type="1" id="{{SortableListId}}" class="list-sortable" [dragula]='"first-bag"'>
         <li class="panel panel-info" *ngFor="let section of orderPaper.Sections; let i = index">
-            <div class='container' [dragula]='"sixth-bag"'>
+            <div class='container'>
                 <div>
                     <span class='handle'>+</span>
 
