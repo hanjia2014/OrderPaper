@@ -11,36 +11,41 @@ import { OrderType }                                                        from
     selector: 'new-order-paper',
     template: `<h1>{{id}}</h1>
                 <div id="spinner"></div>
-                <div class="navbar-fixed-top container" style="box-shadow: 0 14px 24px -14px gray;">
+                <div class="navbar-fixed-top" style="box-shadow: 0 14px 24px -14px gray; position: relative">
                     <tabs>
                         <tab [title]="'Details'">
                             <div class="row">
-                                <div class="col-md-2">
-                                    Order Paper For:
-                                </div>
-                                <div class="col-md-4">
-                                    <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker>
-                                </div>
-                                <div class="col-md-2">
-                                    Order Paper Number:
-                                </div>
-                                <div class="col-md-4">
-                                    <input [(ngModel)] = "orderPaper.OrderPaperNumber" placeholder="Order Paper Number" />
-                                </div>
+                                <button class="pull-right" onclick="$('#details').slideToggle();">click</button>
                             </div>
+                            <div id="details">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        Order Paper For:
+                                    </div>
+                                    <div class="col-md-4">
+                                        <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker>
+                                    </div>
+                                    <div class="col-md-2">
+                                        Order Paper Number:
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input [(ngModel)] = "orderPaper.OrderPaperNumber" placeholder="Order Paper Number" />
+                                    </div>
+                                </div>
 
-                            <div class="row">
-                                <div class="col-md-2">
-                                    Order Paper Status:
-                                </div>
-                                <div class="col-md-4">
-                                    <select2 [id]="'orderPaperStatus'" [placeholder]="'status'" [enableSearch]="false" [multiple]="false" [data]="orderPaperStatus" (selected)="selected($event)"></select2>
-                                </div>
-                                <div class="col-md-2">
-                                    Sitting Hours:
-                                </div>
-                                <div class="col-md-4">
-                                    <input [(ngModel)] = "orderPaper.SittingHours" placeholder="Sitting Hours" /><br/>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        Order Paper Status:
+                                    </div>
+                                    <div class="col-md-4">
+                                        <select2 [id]="'orderPaperStatus'" [placeholder]="'status'" [enableSearch]="false" [multiple]="false" [data]="orderPaperStatus" (selected)="selected($event)"></select2>
+                                    </div>
+                                    <div class="col-md-2">
+                                        Sitting Hours:
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input [(ngModel)] = "orderPaper.SittingHours" placeholder="Sitting Hours" /><br/>
+                                    </div>
                                 </div>
                             </div>
                         </tab>
@@ -50,7 +55,7 @@ import { OrderType }                                                        from
                     </tabs>
                 </div>
                 <br/>
-                <div class="form" style="margin-top:240px">
+                <div class="form">
                     <ol type="1" id="{{SortableListId}}" class="list-sortable">
                         <li class="panel panel-info" *ngFor="let orderType of orderPaper.OrderTypes; let i = index">
                             <div class="panel-heading"></div>

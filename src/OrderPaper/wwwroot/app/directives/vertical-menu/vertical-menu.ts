@@ -24,6 +24,29 @@
                   </ul>
                 </div>`,
     styles: [`
+            #top-menu li::after {
+            position: relative;
+            top: 3pt;
+            content: "";
+            display: inline-block;
+            /* By using an em scale, the arrows will size with the font */
+            width: 0.4em;
+            height: 0.4em;
+            border-right: 0.2em solid black;
+            border-top: 0.2em solid black;
+            transform: rotate(45deg);
+            margin-right: 0.5em;
+            }
+
+            /* Change color */
+            #top-menu li:hover {
+                color: red; /* For the text */
+            }
+
+                #top-menu li:hover::after {
+                    border-color: red; /* For the arrow (which is a border) */
+                }
+
             #top-menu, #top-menu ul, #top-menu ul li, #top-menu ul li a {
                 margin: 0;
                 padding: 0;
