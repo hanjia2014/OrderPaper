@@ -4,15 +4,11 @@ import { ReportSection } from '../../models/section';
 @Component({
     selector: 'report-section',
     template: `<h1>Report -- {{report.Sequence}}</h1>
-                <div class="container">
-                    <div class="row">
-                        Group: <input type="checkbox" [(ngModel)]="report.IsGroup">
-                        <br/>
-                        Title: {{report.Title}}<br/>
-                        Shoulder: {{report.Shoulder}}<br/>
-                        Committee: {{report.Committee}}<br/>
-                        LatestEvent: {{report.LatestEvent}}<br/>
-                    </div>
+                <div>
+                    Title: {{report.Title}}<br/>
+                    Shoulder: {{report.Shoulder}}<br/>
+                    Committee: {{report.Committee}}<br/>
+                    LatestEvent: {{report.LatestEvent}}<br/>
                 </div>`,
     styles: [],
     providers: []
