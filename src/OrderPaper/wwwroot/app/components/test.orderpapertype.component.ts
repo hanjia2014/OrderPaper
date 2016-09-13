@@ -49,7 +49,7 @@ import { OrderType }                                                            
                         </div>
                     </div>
                     <div class="row">
-                        <div *ngFor="let group of groups; let i = index">
+                        <div *ngFor="let group of groups; let i = index" class="col-sm-6">
                             <div class="panel-body" dnd-sortable-container [dropZones]="['drop-zone']" [sortableData]="group">
                                 <div class="panel panel-warning">
                                     <div class="panel-heading">
@@ -76,10 +76,9 @@ import { OrderType }                                                            
                                 <li class="panel panel-info" *ngFor="let section of orderType.Sections; let i = index" dnd-sortable [sortableIndex]="i">
                                     <div class="panel-heading"></div>
                                     <div class="panel-body">
-                                        {{section.Type}}
-                                        <!--<span *ngIf="section.Type == 'Motion'"><motion-section [index]="i" [motion]="section"></motion-section></span>
+                                        <span *ngIf="section.Type == 'Motion'"><motion-section [index]="i" [motion]="section"></motion-section></span>
                                         <span *ngIf="section.Type == 'Bill'"><bill-section [index]="i" [bill]="section"></bill-section></span>
-                                        <span *ngIf="section.Type == 'Report'"><report-section [index]="i" [report]="section"></report-section></span>-->
+                                        <span *ngIf="section.Type == 'Report'"><report-section [index]="i" [report]="section"></report-section></span>
                                     </div>
                                 </li>
                             </ol>
