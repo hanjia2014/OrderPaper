@@ -34,8 +34,11 @@ import { OrderType }                                                            
                         <div class="col-md-1">
                             <input type="checkbox" [(ngModel)]="orderType.Include" />
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <input [(ngModel)]="orderType.Name" />
+                        </div>
+                        <div class="col-md-1">
+                            <button (click)="addGroup()">Add Group</button>
                         </div>
                         <div class="col-md-3">
                             <select2 [id]="'mySel' + index" [enableSearch]="false" [multiple]="false" [data]="sectionTypes" (selected)="selected($event)"></select2>
@@ -46,23 +49,26 @@ import { OrderType }                                                            
                         </div>
                     </div>
                     <div class="row">
-                        <div class="panel-body" dnd-sortable-container [dropZones]="['boxers-zone']" [sortableData]="groupSections">
-                            <div class="panel panel-warning">
-                                <div class="panel-heading">
-                                  Group
-                                </div>
-                                <div class="panel-body">
-                                    <ol class="list-group" >
-                                      <li *ngFor="let section of groupSections; let i = index" class="list-group-item" dnd-sortable [sortableIndex]="i">
-                                        <div class="panel-heading"></div>
-                                        <div class="panel-body">
-                                            {{section.Type}}
-                                        </div>
-                                      </li>
-                                    </ol>
+                        <div *ngFor="let group of groups; let i = index">
+                            <div class="panel-body" dnd-sortable-container [dropZones]="['boxers-zone']" [sortableData]="group">
+                                <div class="panel panel-warning">
+                                    <div class="panel-heading">
+                                      Group
+                                    </div>
+                                    <div class="panel-body">
+                                        <ol class="list-group" >
+                                          <li *ngFor="let groupItem of group; let i = index" class="list-group-item" dnd-sortable [sortableIndex]="i">
+                                            <div class="panel-heading"></div>
+                                            <div class="panel-body">
+                                                {{groupItem.Type}}
+                                            </div>
+                                          </li>
+                                        </ol>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                     <div class="row">
                         <div class="panel-body" dnd-sortable-container [dropZones]="['boxers-zone']" [sortableData]="orderType.Sections">
@@ -92,7 +98,7 @@ export class TestOrderPaperTypeComponent extends BaseComponent implements OnInit
     selectId: string;
     sectionTypes = [{ id: "Bill", text: "Bill" }, { id: "Motion", text: "Motion" }, { id: "Report", text: "Report" }];
     //
-    groupSections: Array<Section> = new Array<Section>();
+    groups: Array<Array<Section>> = new Array<Array<Section>>();
     //
     @Input()
     orderType: OrderType;
@@ -134,10 +140,8 @@ export class TestOrderPaperTypeComponent extends BaseComponent implements OnInit
             this.orderType.Sections.push(new MotionSection());
         }
     }
-
-
-
-    listBoxers: Array<string> = ['Sugar Ray Robinson', 'Muhammad Ali', 'George Foreman', 'Joe Frazier', 'Jake LaMotta', 'Joe Louis', 'Jack Dempsey', 'Rocky Marciano', 'Mike Tyson', 'Oscar De La Hoya'];
-    listTeamOne: Array<string> = [];
-    listTeamTwo: Array<string> = [];
+    addGroup() {
+        var group = new Array<Section>();
+        this.groups.push(group);
+    }
 }
