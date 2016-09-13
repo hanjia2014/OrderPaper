@@ -6,6 +6,7 @@ import { OrderPaperService }                                                from
 import { MotionSection, Section }                                           from '../models/section';
 import { OrderType }                                                        from '../models/ordertype';
 import { OrderPaper }                                                       from '../models/orderpaper';
+import { DND_PROVIDERS, DND_DIRECTIVES }                                    from '../directives/dnd/ng2-dnd';
 
 @Component({
     selector: 'test-order-paper',
@@ -60,7 +61,7 @@ import { OrderPaper }                                                       from
                         <li class="panel panel-info" *ngFor="let orderType of orderPaper.OrderTypes; let i = index">
                             <div class="panel-heading"></div>
                             <div class="panel-body">
-                                <order-type [orderType] = "orderType" [index]="i"></order-type>
+                                <test-order-type [orderType] = "orderType" [index]="i"></test-order-type>
                             </div>
                         </li>
                     </ol>
@@ -71,7 +72,7 @@ import { OrderPaper }                                                       from
                 </div>        
                 `,
     styles: [],
-    providers: [OrderPaperService]
+    providers: [OrderPaperService, DND_PROVIDERS]
 })
 export class TestOrderPaperComponent extends BaseComponent implements OnInit {
     orderPaper: OrderPaper;

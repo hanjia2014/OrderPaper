@@ -6,7 +6,7 @@ import { DND_PROVIDERS, DND_DIRECTIVES } from '../directives/dnd/ng2-dnd';
     providers: [DND_PROVIDERS],
     template: `<div class="container">
                     <div>
-                    <h4>Drag-and-Drop - Shopping basket</h4>
+                        <h4>Drag-and-Drop - Shopping basket</h4>
                         <div class="row">
                             <div class="col-sm-3">
                                 <div class="panel panel-success">
