@@ -6,6 +6,7 @@ import { NewOrderPaperComponent }   from './new.orderpaper.component';
 import { TestDragulaComponent }     from './test.dragula';
 import { TestAccordionComponent }   from './test.accordion';
 import { TestDndComponent }         from './test.dnd';
+import { TestOrderPaperComponent }  from './test.orderpaper.component';
 
 const appRoutes: Routes = [
     {
@@ -36,6 +37,10 @@ const appRoutes: Routes = [
     {
         path: 'new-order-paper',
         component: NewOrderPaperComponent
+    },
+    {
+        path: 'test-order-paper',
+        component: TestOrderPaperComponent
     }
 ];
 

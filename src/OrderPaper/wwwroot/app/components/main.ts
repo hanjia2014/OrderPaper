@@ -25,6 +25,7 @@ import { Router }               from '@angular/router';
                     </ol>
                     <div class="row">
                         <input type="button" value="Create" (click)="createOrderPaper()" />
+                        <input type="button" style="pull-right" value="Test" (click)="testOrderPaper()" />
                     </div>`,
     styles: [],
     providers: [OrderPaperService]
@@ -61,5 +62,9 @@ export class MainComponent extends BaseComponent implements OnInit {
 
     createOrderPaper() {
         this.router.navigate(['/new-order-paper']);
+    }
+
+    testOrderPaper() {
+        this.router.navigate(['/test-order-paper']);
     }
 }
