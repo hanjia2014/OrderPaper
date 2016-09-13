@@ -50,17 +50,17 @@ import { OrderType }                                                            
                     </div>
                     <div class="row">
                         <div *ngFor="let group of groups; let i = index">
-                            <div class="panel-body" dnd-sortable-container [dropZones]="['boxers-zone']" [sortableData]="group">
+                            <div class="panel-body" dnd-sortable-container [dropZones]="['drop-zone']" [sortableData]="group">
                                 <div class="panel panel-warning">
                                     <div class="panel-heading">
-                                      Group
+                                      {{'Group - ' + (i+1)}}
                                     </div>
                                     <div class="panel-body">
                                         <ol class="list-group" >
                                           <li *ngFor="let groupItem of group; let i = index" class="list-group-item" dnd-sortable [sortableIndex]="i">
                                             <div class="panel-heading"></div>
                                             <div class="panel-body">
-                                                {{groupItem.Type}}
+                                                {{i+1}}) {{groupItem.Type}}
                                             </div>
                                           </li>
                                         </ol>
@@ -71,7 +71,7 @@ import { OrderType }                                                            
                         
                     </div>
                     <div class="row">
-                        <div class="panel-body" dnd-sortable-container [dropZones]="['boxers-zone']" [sortableData]="orderType.Sections">
+                        <div class="panel-body" dnd-sortable-container [dropZones]="['drop-zone']" [sortableData]="orderType.Sections">
                             <ol type="1" id="{{SortableListId}}" class="list-sortable">
                                 <li class="panel panel-info" *ngFor="let section of orderType.Sections; let i = index" dnd-sortable [sortableIndex]="i">
                                     <div class="panel-heading"></div>
@@ -85,6 +85,9 @@ import { OrderType }                                                            
                             </ol>
                         </div>
                     </div>
+                    <a *ngIf="orderType.Sections.length > 0" class="btn btn-lg save-button pull-right" (click)="save($event)">
+                        <span class="glyphicon glyphicon-floppy-disk"></span> Save
+                    </a>
                     `,
     styles: [],
     providers: []
@@ -123,6 +126,7 @@ export class TestOrderPaperTypeComponent extends BaseComponent implements OnInit
     }
     //save
     save = (e: any) => {
+        var type = this.orderType;
     }
     updateSequence(oldIndex: number, newIndex: number): void {
         var oldSequence = oldIndex + 1;
