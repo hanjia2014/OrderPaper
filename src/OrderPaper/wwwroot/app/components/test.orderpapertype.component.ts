@@ -53,7 +53,7 @@ import { OrderType }                                                            
                             <div class="panel-body" dnd-sortable-container [dropZones]="['drop-zone']" [sortableData]="group">
                                 <div class="panel panel-warning">
                                     <div class="panel-heading">
-                                      {{'Group - ' + (i+1)}}
+                                      {{'Group - ' + (i+1)}} <span class="pull-right" (click)="removeGroup(group, i)" style="color:black; cursor: pointer; cursor: hand;">X</span>
                                     </div>
                                     <div class="panel-body">
                                         <ol class="list-group" >
@@ -124,6 +124,20 @@ export class TestOrderPaperTypeComponent extends BaseComponent implements OnInit
     //save
     save = (e: any) => {
         var type = this.orderType;
+    }
+
+    removeGroup(group: Array<Section>, index: number) {
+        if (group.length > 0) {
+            group.forEach((section) => {
+                this.orderType.Sections.push(section);
+            });
+
+            for (var i = group.length - 1; i > -1; i--) {
+                group.splice(i, 1);
+            }
+        }
+
+        this.orderType.Groups.splice(index, 1);
     }
     updateSequence(oldIndex: number, newIndex: number): void {
         var oldSequence = oldIndex + 1;
