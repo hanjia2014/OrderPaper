@@ -17,6 +17,8 @@ export class Select2Component implements AfterViewInit {
     enableSearch: boolean;
     @Input()
     placeholder: string;
+    @Input()
+    allowFreeText: boolean;
 
     @Output() selected = new EventEmitter();
 
@@ -27,7 +29,17 @@ export class Select2Component implements AfterViewInit {
             allowClear: true,
             data: this.data,
             multiple: this.multiple,
-            maximumInputLength: 30
+            maximumInputLength: 30,
+            //Allow manually entered text in drop down.
+            createSearchChoice: (term, data) => {
+                if (this.allowFreeText) {
+                    if ($(data).filter(function () {
+                        return this.text.localeCompare(term) === 0;
+                    }).length === 0) {
+                        return { id: term, text: term };
+                    }
+                }
+            },
         };
 
         if (this.enableSearch == false) {
