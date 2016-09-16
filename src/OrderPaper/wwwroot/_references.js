@@ -18,6 +18,7 @@
 /// <reference path="content/scripts/vendors/select2.min.js" />
 /// <reference path="content/scripts/vendors/spin.min.js" />
 /// <reference path="content/scripts/vendors/tether.min.js" />
+/// <reference path="content/scripts/vendors/xeponline.jqplugin.js" />
 /// <reference path="js/site.js" />
 /// <reference path="lib/bootstrap/dist/js/bootstrap.js" />
 /// <reference path="lib/jquery/dist/jquery.js" />

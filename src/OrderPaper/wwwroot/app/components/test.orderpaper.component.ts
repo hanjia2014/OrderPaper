@@ -69,6 +69,10 @@ import { DND_PROVIDERS, DND_DIRECTIVES }                                    from
                     <a class="btn btn-lg save-button" (click)="save($event)">
                         <span class="glyphicon glyphicon-floppy-disk"></span> Save
                     </a>
+
+                    <a class="btn btn-lg save-button pull-right" (click)="print($event)">
+                        <span class="glyphicon glyphicon-print"></span> Print
+                    </a>
                 </div>        
                 `,
     styles: [],
@@ -115,6 +119,10 @@ export class TestOrderPaperComponent extends BaseComponent implements OnInit {
 
             },
             (err: any) => this.error = err);
+    }
+
+    print = (e: any) => {
+        return xepOnline.Formatter.Format(this.SortableListId, { render: 'download' });
     }
 
     dateChange = (value: Date) => {
