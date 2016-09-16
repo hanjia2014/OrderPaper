@@ -14,7 +14,7 @@ import { DND_PROVIDERS, DND_DIRECTIVES }                                    from
                 <div id="spinner"></div>
                 <div class="navbar-fixed-top" style="box-shadow: 0 14px 24px -14px gray; position: relative">
                     <tabs>
-                        <tab [title]="'Details'">
+                        <tab [title]="'Details'" (onActiveChange)="onCheckTabMode($event)">
                             <div class="row">
                                 <button class="pull-right" onclick="$('#details').slideToggle();">click</button>
                             </div>
@@ -50,13 +50,23 @@ import { DND_PROVIDERS, DND_DIRECTIVES }                                    from
                                 </div>
                             </div>
                         </tab>
-                        <tab [title]="'Preview'">
+                        <tab [title]="'Add Section'" (onActiveChange)="onCheckTabMode($event)">
                             <vertical-menu></vertical-menu>
+                        </tab>
+                        <tab [title]="'Preview'" (onActiveChange)="onCheckTabMode($event)">
+                            <div class=" form row">
+                                <a class="btn btn-lg save-button pull-right" (click)="printPreview($event)">
+                                    <span class="glyphicon glyphicon-print"></span> Print
+                                </a>
+                                <a class="btn btn-lg save-button pull-left" (click)="openPreview($event)">
+                                    <span class="glyphicon glyphicon-print"></span> Open
+                                </a>
+                            </div>
                         </tab>
                     </tabs>
                 </div>
                 <br/>
-                <div class="form">
+                <div class="form" *ngIf="isPreviewMode == false">
                     <ol type="1" id="{{SortableListId}}" class="list-sortable">
                         <li class="panel panel-info" *ngFor="let orderType of orderPaper.OrderTypes; let i = index">
                             <div class="panel-heading"></div>
@@ -70,10 +80,15 @@ import { DND_PROVIDERS, DND_DIRECTIVES }                                    from
                         <span class="glyphicon glyphicon-floppy-disk"></span> Save
                     </a>
 
-                    <a class="btn btn-lg save-button pull-right" (click)="print($event)">
-                        <span class="glyphicon glyphicon-print"></span> Print
-                    </a>
                 </div>        
+                <div class="form" id="order-paper-preview" *ngIf="isPreviewMode">
+                    <div class="panel panel-info" *ngFor="let orderType of orderPaper.OrderTypes; let i = index">
+                        <div class="panel-heading"></div>
+                        <div class="panel-body">
+                            <test-order-type-preview [orderType] = "orderType" [index]="i"></test-order-type-preview>
+                        </div>
+                    </div>
+                </div>       
                 `,
     styles: [],
     providers: [OrderPaperService, DND_PROVIDERS]
@@ -91,6 +106,7 @@ export class TestOrderPaperComponent extends BaseComponent implements OnInit {
     spinnerElm: any = document.getElementById("spinner");
     //datepicker
     orderPaperDate: Date;
+    isPreviewMode: boolean;
 
     constructor(private orderPaperService: OrderPaperService, private route: ActivatedRoute, private zone: NgZone) {
         super();
@@ -121,12 +137,20 @@ export class TestOrderPaperComponent extends BaseComponent implements OnInit {
             (err: any) => this.error = err);
     }
 
-    print = (e: any) => {
-        return xepOnline.Formatter.Format(this.SortableListId, { render: 'download' });
+    printPreview = (e: any) => {
+        return xepOnline.Formatter.Format('order-paper-preview', { render: 'download' });
+    }
+
+    openPreview = (e: any) => {
+        return xepOnline.Formatter.Format('order-paper-preview', { render: 'newwin' });
     }
 
     dateChange = (value: Date) => {
         this.orderPaperDate = value;
+    }
+
+    onCheckTabMode = (value: string) => {
+        this.isPreviewMode = value == 'Preview';
     }
 
     updateSequence(oldIndex: number, newIndex: number): void {

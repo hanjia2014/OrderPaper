@@ -29,5 +29,7 @@ export class Tabs implements AfterContentInit {
         this.tabs.forEach(tab => tab.active = false);
         // activate the tab the user has clicked on.
         tab.active = true;
+
+        tab.onActiveChange.next(tab.title);
     }
 }
