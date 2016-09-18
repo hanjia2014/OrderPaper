@@ -4,7 +4,7 @@ import { BillSection } from '../../models/section';
 @Component({
     selector: 'bill-section',
     template: `
-                <div class="undraggable">
+                <div onmousedown="return false">
                    <h1>Bill -- {{bill.Sequence}}</h1>
                    <div class="row">
                        <div class="col-md-2">
@@ -56,12 +56,12 @@ export class BillSectionComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        $('.undraggable')
-            .on('focus', function (e) {
-                $('.panel').attr("draggable", "false");
-            })
-            .on('blur', function (e) {
-                $('.panel').attr("draggable", "true");
-            });
+        //$('.undraggable')
+        //    .on('focus', function (e) {
+        //        $('.panel').attr("draggable", "false");
+        //    })
+        //    .on('blur', function (e) {
+        //        $('.panel').attr("draggable", "true");
+        //    });
     }
 }
