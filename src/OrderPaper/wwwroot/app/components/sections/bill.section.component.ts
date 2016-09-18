@@ -58,10 +58,10 @@ export class BillSectionComponent implements OnInit, AfterViewInit {
     ngAfterViewInit() {
         $('.undraggable')
             .on('focus', function (e) {
-                $('.panel').attr("draggable", false);
+                $('.panel').attr("draggable", "false");
             })
             .on('blur', function (e) {
-                $('.panel').attr("draggable", true);
+                $('.panel').attr("draggable", "true");
             });
     }
 }
