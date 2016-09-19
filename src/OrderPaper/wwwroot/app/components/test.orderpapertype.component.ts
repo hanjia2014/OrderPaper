@@ -76,7 +76,7 @@ import { OrderType }                                                            
                     <div class="row">
                         <div class="panel-body" dnd-sortable-container [dropZones]="['drop-zone']" [sortableData]="orderType.Sections">
                             <ol type="1" id="{{SortableListId}}" class="list-sortable">
-                                <li *ngFor="let section of orderType.Sections; let i = index" dnd-sortable [sortableIndex]="i">
+                                <li *ngFor="let section of orderType.Sections; let i = index" dnd-sortable [sortableIndex]="i" class="item-li">
                                     <div class="panel panel-info" *ngIf="section.Type != 'Line'">
                                         <div class="panel-heading"></div>
                                         <div class="panel-body">
