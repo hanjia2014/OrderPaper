@@ -86,7 +86,10 @@ import { OrderType }                                                            
                                         </div>
                                     </div>
                                     <div *ngIf="section.Type == 'Line'">
-                                        <hr style="color: #f00; background-color: #f00; height: 5px;"/>
+                                        <div class="red-line">
+                                            <hr/>
+                                            <div class="red-line-remove">remove</div>
+                                        </div>
                                     </div>
                                 </li>
                             </ol>
@@ -96,7 +99,19 @@ import { OrderType }                                                            
                         <span class="glyphicon glyphicon-floppy-disk"></span> Save
                     </a>
                     `,
-    styles: [],
+    styles: [`
+            .red-line hr{
+                color: #f00; 
+                background-color: #f00; 
+                height: 5px;
+            }
+            .red-line-remove{
+                display: none;
+            }
+            .red-line: hover + .red-line-remove{
+                display: block;
+            }
+            `],
     providers: []
 })
 export class TestOrderPaperTypeComponent extends BaseComponent implements OnInit {
