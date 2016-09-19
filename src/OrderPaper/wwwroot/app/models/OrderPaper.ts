@@ -1,5 +1,5 @@
 ﻿import { Status } from './constants';
-import { Section } from './Section';
+import { Section, MotionSection, BillSection, ReportSection } from './Section';
 import { OrderType } from './OrderType';
 
 export class OrderPaper {
@@ -19,6 +19,14 @@ export class OrderPaper {
         var orderType = new OrderType();
         orderType.IsFrontPage = true;
         orderType.Name = "Oral questions";
+
+        var billSection = new BillSection();
+        var reportSection = new ReportSection();
+        reportSection.HasLine = true;
+        var motionSection = new MotionSection();
+        orderType.Sections.push(billSection);
+        orderType.Sections.push(reportSection);
+        orderType.Sections.push(motionSection);
         this.OrderTypes.push(orderType);
 
         orderType = new OrderType();

@@ -5,6 +5,7 @@ import { ReportSection } from '../../models/section';
     selector: 'report-section',
     template: `<h1>Report -- {{report.Sequence}}</h1>
                 <div>
+                    Line: <input type="checkbox" [(ngModel)]="report.HasLine" /><br />
                     Title: {{report.Title}}<br/>
                     Shoulder: {{report.Shoulder}}<br/>
                     Committee: {{report.Committee}}<br/>

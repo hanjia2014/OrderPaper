@@ -28,7 +28,7 @@ import { OrderType }                                                            
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-1">
                             <input type="checkbox" [(ngModel)]="orderType.IsFrontPage" />
                         </div>
                         <div class="col-md-1">
@@ -39,6 +39,9 @@ import { OrderType }                                                            
                         </div>
                         <div class="col-md-1">
                             <button (click)="addGroup()">Add Group</button>
+                        </div>
+                        <div class="col-md-1">
+                            <button (click)="addLine()">Add Line</button>
                         </div>
                         <div class="col-md-3">
                             <select2 [id]="'mySel' + index" [enableSearch]="false" [multiple]="false" [data]="sectionTypes" (selected)="selected($event)"></select2>
@@ -73,12 +76,17 @@ import { OrderType }                                                            
                     <div class="row">
                         <div class="panel-body" dnd-sortable-container [dropZones]="['drop-zone']" [sortableData]="orderType.Sections">
                             <ol type="1" id="{{SortableListId}}" class="list-sortable">
-                                <li class="panel panel-info" *ngFor="let section of orderType.Sections; let i = index" dnd-sortable [sortableIndex]="i">
-                                    <div class="panel-heading"></div>
-                                    <div class="panel-body">
-                                        <span *ngIf="section.Type == 'Motion'"><motion-section [index]="i" [motion]="section"></motion-section></span>
-                                        <span *ngIf="section.Type == 'Bill'"><bill-section [index]="i" [bill]="section"></bill-section></span>
-                                        <span *ngIf="section.Type == 'Report'"><report-section [index]="i" [report]="section"></report-section></span>
+                                <li *ngFor="let section of orderType.Sections; let i = index" dnd-sortable [sortableIndex]="i">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading"></div>
+                                        <div class="panel-body">
+                                            <span *ngIf="section.Type == 'Motion'"><motion-section [index]="i" [motion]="section"></motion-section></span>
+                                            <span *ngIf="section.Type == 'Bill'"><bill-section [index]="i" [bill]="section"></bill-section></span>
+                                            <span *ngIf="section.Type == 'Report'"><report-section [index]="i" [report]="section"></report-section></span>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="section.HasLine">
+                                        <hr style="color: #f00; background-color: #f00; height: 5px;"/>
                                     </div>
                                 </li>
                             </ol>
@@ -158,5 +166,7 @@ export class TestOrderPaperTypeComponent extends BaseComponent implements OnInit
     addGroup() {
         var group = new Array<Section>();
         this.orderType.Groups.push(group);
+    }
+    addLine() {
     }
 }

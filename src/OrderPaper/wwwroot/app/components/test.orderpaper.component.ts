@@ -107,6 +107,8 @@ export class TestOrderPaperComponent extends BaseComponent implements OnInit {
     //datepicker
     orderPaperDate: Date;
     isPreviewMode: boolean;
+    //test
+    updatedSection: Section = new Section();
 
     constructor(private orderPaperService: OrderPaperService, private route: ActivatedRoute, private zone: NgZone) {
         super();
@@ -156,5 +158,28 @@ export class TestOrderPaperComponent extends BaseComponent implements OnInit {
     updateSequence(oldIndex: number, newIndex: number): void {
         var oldSequence = oldIndex + 1;
         var newSequence = newIndex + 1;
+
+        this.orderPaper.Sections.forEach((section) => {
+            if (section.Sequence == oldSequence) {
+                this.zone.runOutsideAngular(() => {
+                    this.zone.run(() => {
+
+                        if (oldSequence > newSequence) {
+                            this.orderPaper.Sections.forEach((section) => {
+                                if (section.Sequence == oldSequence)
+                                    this.updatedSection = section;
+                            });
+
+                            this.orderPaper.Sections.forEach((section) => {
+                                if (section.Sequence >= newSequence && section.Sequence < oldSequence)
+                                    section.Sequence = section.Sequence + 1;
+                            });
+
+                            this.updatedSection.Sequence = newSequence;
+                        }
+                    });
+                })
+            }
+        });
     }
 }
