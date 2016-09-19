@@ -4,7 +4,7 @@ import { OrderPaper }                                                           
 import { BaseComponent }                                                        from './base.component';
 import { MODAL_DIRECTIVES, ModalComponent }                                     from '../directives/ng2-bs3-modal/ng2-bs3-modal';
 import { MotionSectionComponent }                                               from './sections/motion.section.component';
-import { MotionSection, Section, BillSection, ReportSection }                   from '../models/section';
+import { MotionSection, Section, BillSection, ReportSection, LineSection }      from '../models/section';
 import { OrderType }                                                            from '../models/ordertype';
 
 @Component({
@@ -77,7 +77,7 @@ import { OrderType }                                                            
                         <div class="panel-body" dnd-sortable-container [dropZones]="['drop-zone']" [sortableData]="orderType.Sections">
                             <ol type="1" id="{{SortableListId}}" class="list-sortable">
                                 <li *ngFor="let section of orderType.Sections; let i = index" dnd-sortable [sortableIndex]="i">
-                                    <div class="panel panel-info">
+                                    <div class="panel panel-info" *ngIf="section.Type != 'Line'">
                                         <div class="panel-heading"></div>
                                         <div class="panel-body">
                                             <span *ngIf="section.Type == 'Motion'"><motion-section [index]="i" [motion]="section"></motion-section></span>
@@ -85,7 +85,7 @@ import { OrderType }                                                            
                                             <span *ngIf="section.Type == 'Report'"><report-section [index]="i" [report]="section"></report-section></span>
                                         </div>
                                     </div>
-                                    <div *ngIf="section.HasLine">
+                                    <div *ngIf="section.Type == 'Line'">
                                         <hr style="color: #f00; background-color: #f00; height: 5px;"/>
                                     </div>
                                 </li>
@@ -168,5 +168,7 @@ export class TestOrderPaperTypeComponent extends BaseComponent implements OnInit
         this.orderType.Groups.push(group);
     }
     addLine() {
+        var lineSection = new LineSection();
+        this.orderType.Sections.push(lineSection);
     }
 }

@@ -44,3 +44,11 @@ export class ReportSection extends Section {
         this.Type = "Report";
     }
 }
+
+export class LineSection extends Section {
+    AttachedSectionId: string;
+    constructor() {
+        super();
+        this.Type = "Line";
+    }
+}

@@ -10,5 +10,6 @@ namespace OrderPaper.Models
         public string Details { get; set; }
         public string Speeches { get; set; }
         public List<Section> Sections { get; set; }
+        public List<OrderType> OrderTypes { get; set; }
     }
 }

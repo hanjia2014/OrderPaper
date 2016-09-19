@@ -22,7 +22,6 @@ export class OrderPaper {
 
         var billSection = new BillSection();
         var reportSection = new ReportSection();
-        reportSection.HasLine = true;
         var motionSection = new MotionSection();
         orderType.Sections.push(billSection);
         orderType.Sections.push(reportSection);
