@@ -86,10 +86,7 @@ import { OrderType }                                                            
                                         </div>
                                     </div>
                                     <div *ngIf="section.Type == 'Line'">
-                                        <div class="red-line">
-                                            <hr/>
-                                            <div class="red-line-remove">remove</div>
-                                        </div>
+                                        <line-item [line]="section" (onDeleteLine)="deleteLine($event, i)"></line-item>
                                     </div>
                                 </li>
                             </ol>
@@ -99,19 +96,7 @@ import { OrderType }                                                            
                         <span class="glyphicon glyphicon-floppy-disk"></span> Save
                     </a>
                     `,
-    styles: [`
-            .red-line hr{
-                color: #f00; 
-                background-color: #f00; 
-                height: 5px;
-            }
-            .red-line-remove{
-                display: none;
-            }
-            .red-line: hover + .red-line-remove{
-                display: block;
-            }
-            `],
+    styles: [],
     providers: []
 })
 export class TestOrderPaperTypeComponent extends BaseComponent implements OnInit {
@@ -185,5 +170,8 @@ export class TestOrderPaperTypeComponent extends BaseComponent implements OnInit
     addLine() {
         var lineSection = new LineSection();
         this.orderType.Sections.push(lineSection);
+    }
+    deleteLine = (line: LineSection, index: number) => {
+        this.orderType.Sections.splice(index, 1);
     }
 }
