@@ -19,6 +19,8 @@ export class Select2Component implements AfterViewInit {
     placeholder: string;
     @Input()
     allowFreeText: boolean;
+    @Input()
+    disableMultipleSelection: boolean;
 
     @Output() selected = new EventEmitter();
 
@@ -30,6 +32,7 @@ export class Select2Component implements AfterViewInit {
             data: this.data,
             multiple: this.multiple,
             maximumInputLength: 30,
+            width: 'resolve',
             //Allow manually entered text in drop down.
             createSearchChoice: (term, data) => {
                 if (this.allowFreeText) {
@@ -50,6 +53,13 @@ export class Select2Component implements AfterViewInit {
             this.selected.next(e.val);
         });
 
+        if (this.disableMultipleSelection) {
+            $("#" + this.id).select2(options).on("select2-opening", (e: any) => {
+                if ($("#" + this.id).select2('val').length > 0) {
+                    e.preventDefault();
+                }
+            });
+        }
     }
     constructor() {
         

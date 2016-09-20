@@ -44,7 +44,7 @@ import { OrderType }                                                            
                             <button (click)="addLine()">Add Line</button>
                         </div>
                         <div class="col-md-3">
-                            <select2 [id]="'mySel' + index" [enableSearch]="false" [multiple]="false" [data]="sectionTypes" (selected)="selected($event)"></select2>
+                            <select2 [id]="'mySel' + index" [enableSearch]="true" [multiple]="true" [disableMultipleSelection]="true" [data]="sectionTypes" (selected)="selected($event)"></select2>
                             <input type="button" class="btn" value="Add" (click)="addSection()" />
                         </div>
                         <div class="col-md-2">
