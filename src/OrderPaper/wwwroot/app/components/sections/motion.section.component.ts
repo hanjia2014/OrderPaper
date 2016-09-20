@@ -3,7 +3,7 @@ import { MotionSection } from '../../models/section';
 
 @Component({
     selector: 'motion-section',
-    template: `<h1>Motion -- {{motion.Sequence}}</h1>
+    template: `<h1>Motion ({{index}}) -- {{motion.Sequence}}</h1>
                 <div>
                     Title: {{motion.Title}}<br/>
                     Speeches: {{motion.Speeches}}<br/>

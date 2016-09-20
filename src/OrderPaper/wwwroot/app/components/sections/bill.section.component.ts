@@ -5,7 +5,7 @@ import { BillSection } from '../../models/section';
     selector: 'bill-section',
     template: `
                 <div class="bill">
-                   <h1>Bill -- {{bill.Sequence}}</h1>
+                   <h1>Bill ({{index}}) -- {{bill.Sequence}}</h1>
                    <div class="row">
                        <div class="col-md-2">
                            Title:
