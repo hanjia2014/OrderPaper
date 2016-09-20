@@ -13,7 +13,7 @@ import { routing }                                  from './app.routes';
 import { BillSectionComponent }                     from './sections/bill.section.component';
 import { ReportSectionComponent }                   from './sections/report.section.component';
 import { MotionSectionComponent }                   from './sections/motion.section.component';
-import { LineItemComponent }                   from './sections/line.item.component';
+import { LineItemComponent }                        from './sections/line.item.component';
 import { Select2Component }                         from '../directives/select2';
 import { DatePickerComponent }                      from '../directives/datepicker';
 import { MODAL_DIRECTIVES, ModalComponent }         from '../directives/ng2-bs3-modal/ng2-bs3-modal';
