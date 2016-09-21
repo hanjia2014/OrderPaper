@@ -46,9 +46,17 @@ export class ReportSection extends Section {
 }
 
 export class LineSection extends Section {
-    AttachedSectionId: string;
     constructor() {
         super();
         this.Type = "Line";
+    }
+}
+
+export class GroupItem extends Section {
+    Items: Array<Section>;
+    constructor() {
+        super();
+        this.Items = new Array<Section>();
+        this.Type = "Group";
     }
 }
