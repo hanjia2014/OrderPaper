@@ -4,9 +4,11 @@ import { GroupItem }                                            from '../../mode
 @Component({
     selector: 'group-item',
     template: `     <div class="row">
-                        <input [(ngModel)]="fromSequence" placeholder="From" />
-                        <input [(ngModel)]="toSequence" placeholder="To" />
-                        <button class="btn" (click)="addItems()">Add</button>
+                        <div class="panel-body">
+                            <input [(ngModel)]="fromSequence" placeholder="From" />
+                            <input [(ngModel)]="toSequence" placeholder="To" />
+                            <button class="btn" [disabled]="validateSequences()" (click)="addItems()">Add</button>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="panel-body" dnd-sortable-container [dropZones]="['drop-zone']" [sortableData]="group.Items">
@@ -45,5 +47,12 @@ export class GroupItemComponent {
 
     addItems = () => {
         this.onAddItems.next(this);
+    }
+
+    validateSequences() {
+        if (this.fromSequence == null) return true;
+        if (this.toSequence == null) return true;
+        if (this.fromSequence >= this.toSequence) return true;
+        return false;
     }
 }
