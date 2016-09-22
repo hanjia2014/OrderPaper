@@ -1,4 +1,4 @@
-﻿import { Section } from './Section';
+﻿import { Section, GroupItem } from './Section';
 
 export class OrderType {
     IsFrontPage: boolean;
@@ -6,8 +6,10 @@ export class OrderType {
     Name: string;
     Sections: Array<Section>;
     Groups: Array<Array<Section>>;
+    GroupItems: Array<GroupItem>;
     constructor() {
         this.Sections = new Array<Section>();
         this.Groups = new Array<Array<Section>>();
+        this.GroupItems = new Array<GroupItem>();
     }
 }

@@ -14,6 +14,7 @@ import { BillSectionComponent }                     from './sections/bill.sectio
 import { ReportSectionComponent }                   from './sections/report.section.component';
 import { MotionSectionComponent }                   from './sections/motion.section.component';
 import { LineItemComponent }                        from './sections/line.item.component';
+import { GroupItemComponent }                       from './sections/group.item.component';
 import { Select2Component }                         from '../directives/select2';
 import { DatePickerComponent }                      from '../directives/datepicker';
 import { MODAL_DIRECTIVES, ModalComponent }         from '../directives/ng2-bs3-modal/ng2-bs3-modal';
@@ -30,7 +31,30 @@ import { DND_DIRECTIVES }                           from '../directives/dnd/ng2-
 
 @NgModule({
     imports: [BrowserModule, HttpModule, FormsModule, routing],
-    declarations: [MasterComponent, LineItemComponent, TestOrderPaperTypePreviewComponent, TestOrderPaperComponent, TestOrderPaperTypeComponent, TestDndComponent, DND_DIRECTIVES, MainComponent, OrderPaperComponent, OrderPaperTypeComponent, TestDragulaComponent, NewOrderPaperComponent, Select2Component, DatePickerComponent, MODAL_DIRECTIVES, Tabs, Tab, MotionSectionComponent, BillSectionComponent, ReportSectionComponent, Dragula, TestAccordionComponent, VerticalMenuComponent],
+    declarations: [MasterComponent,
+        LineItemComponent,
+        GroupItemComponent,
+        TestOrderPaperTypePreviewComponent,
+        TestOrderPaperComponent,
+        TestOrderPaperTypeComponent,
+        TestDndComponent,
+        DND_DIRECTIVES,
+        MainComponent,
+        OrderPaperComponent,
+        OrderPaperTypeComponent,
+        TestDragulaComponent,
+        NewOrderPaperComponent,
+        Select2Component,
+        DatePickerComponent,
+        MODAL_DIRECTIVES,
+        Tabs,
+        Tab,
+        MotionSectionComponent,
+        BillSectionComponent,
+        ReportSectionComponent,
+        Dragula,
+        TestAccordionComponent,
+        VerticalMenuComponent],
     bootstrap: [MasterComponent],
     providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }]
 })

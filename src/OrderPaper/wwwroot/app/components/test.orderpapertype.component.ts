@@ -1,11 +1,12 @@
-﻿import { Component, OnInit, ViewChild, ViewChildren, QueryList, NgZone, Input } from '@angular/core';
-import { Response }                                                             from '@angular/http';
-import { OrderPaper }                                                           from '../models/orderpaper';
-import { BaseComponent }                                                        from './base.component';
-import { MODAL_DIRECTIVES, ModalComponent }                                     from '../directives/ng2-bs3-modal/ng2-bs3-modal';
-import { MotionSectionComponent }                                               from './sections/motion.section.component';
-import { MotionSection, Section, BillSection, ReportSection, LineSection }      from '../models/section';
-import { OrderType }                                                            from '../models/ordertype';
+﻿import { Component, OnInit, ViewChild, ViewChildren, QueryList, NgZone, Input }         from '@angular/core';
+import { Response }                                                                     from '@angular/http';
+import { BaseComponent }                                                                from './base.component';
+import { MODAL_DIRECTIVES, ModalComponent }                                             from '../directives/ng2-bs3-modal/ng2-bs3-modal';
+import { MotionSectionComponent }                                                       from './sections/motion.section.component';
+import { GroupItemComponent }                                                           from './sections/group.item.component';
+import { MotionSection, Section, BillSection, ReportSection, LineSection, GroupItem }   from '../models/section';
+import { OrderType }                                                                    from '../models/ordertype';
+import { OrderPaper }                                                                   from '../models/orderpaper';
 
 @Component({
     selector: 'test-order-type',
@@ -34,11 +35,14 @@ import { OrderType }                                                            
                         <div class="col-md-1">
                             <input type="checkbox" [(ngModel)]="orderType.Include" />
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <input [(ngModel)]="orderType.Name" />
                         </div>
                         <div class="col-md-1">
                             <button (click)="addGroup()">Add Group</button>
+                        </div>
+                        <div class="col-md-1">
+                            <button (click)="addGroupItem()">Add Group Item</button>
                         </div>
                         <div class="col-md-1">
                             <button (click)="addLine()">Add Line</button>
@@ -77,12 +81,21 @@ import { OrderType }                                                            
                         <div class="panel-body" dnd-sortable-container [dropZones]="['drop-zone']" [sortableData]="orderType.Sections">
                             <ol type="1" id="{{SortableListId}}" class="list-sortable">
                                 <li *ngFor="let section of orderType.Sections; let i = index" dnd-sortable [sortableIndex]="i" class="item-li">
-                                    <div class="panel panel-info" *ngIf="section.Type != 'Line'">
+                                    <div class="panel panel-info" [class.panel-warning]="section.Type == 'Group'" *ngIf="section.Type != 'Line'">
                                         <div class="panel-heading"></div>
                                         <div class="panel-body">
-                                            <span *ngIf="section.Type == 'Motion'"><motion-section [index]="i" [motion]="section"></motion-section></span>
-                                            <span *ngIf="section.Type == 'Bill'"><bill-section [index]="i" [bill]="section"></bill-section></span>
-                                            <span *ngIf="section.Type == 'Report'"><report-section [index]="i" [report]="section"></report-section></span>
+                                            <span *ngIf="section.Type == 'Motion'">
+                                                <motion-section [index]="i" [motion]="section"></motion-section>
+                                            </span>
+                                            <span *ngIf="section.Type == 'Bill'">
+                                                <bill-section [index]="i" [bill]="section"></bill-section>
+                                            </span>
+                                            <span *ngIf="section.Type == 'Report'">
+                                                <report-section [index]="i" [report]="section"></report-section>
+                                            </span>
+                                            <span *ngIf="section.Type == 'Group'">
+                                                <group-item [group]="section" [groupIndex]="i" (onAddItems)="addItemsToGroup($event)"></group-item>
+                                            </span>
                                         </div>
                                     </div>
                                     <div *ngIf="section.Type == 'Line'">
@@ -173,5 +186,18 @@ export class TestOrderPaperTypeComponent extends BaseComponent implements OnInit
     }
     deleteLine = (line: LineSection, index: number) => {
         this.orderType.Sections.splice(index, 1);
+    }
+
+    addGroupItem() {
+        var groupItem = new GroupItem();
+        this.orderType.Sections.push(groupItem);
+    }
+
+    addItemsToGroup(e: GroupItemComponent) {
+        for (var i = e.fromSequence; i <= e.toSequence; i++)
+            e.group.Items.push(this.orderType.Sections[i]);
+
+        for (var i = e.toSequence; i >= e.fromSequence; i--)
+            this.orderType.Sections.splice(i, 1);
     }
 }
