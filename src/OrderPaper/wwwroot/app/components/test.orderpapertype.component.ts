@@ -80,7 +80,7 @@ import { OrderPaper }                                                           
                     <div class="row">
                         <div class="panel-body" dnd-sortable-container [dropZones]="['drop-zone']" [sortableData]="orderType.Sections">
                             <ol type="1" id="{{SortableListId}}" class="list-sortable">
-                                <li *ngFor="let section of orderType.Sections; let i = index" dnd-sortable [sortableIndex]="i" class="item-li">
+                                <li *ngFor="let section of orderType.Sections; let i = index" (onDropSuccess)="dropSuccess()" dnd-sortable [sortableIndex]="i" class="item-li">
                                     <div class="panel panel-info" [class.panel-warning]="section.Type == 'Group'" *ngIf="section.Type != 'Line'">
                                         <div class="panel-heading"></div>
                                         <div class="panel-body">
@@ -199,5 +199,12 @@ export class TestOrderPaperTypeComponent extends BaseComponent implements OnInit
 
         for (var i = e.toSequence; i >= e.fromSequence; i--)
             this.orderType.Sections.splice(i, 1);
+    }
+
+    dropSuccess(e: any) {
+        var sequence = 1;
+        this.orderType.Sections.forEach((section) => {
+            section.Sequence = sequence++;
+        });
     }
 }
