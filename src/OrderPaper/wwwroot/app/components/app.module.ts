@@ -28,7 +28,6 @@ import { TestOrderPaperTypeComponent }              from './test.orderpapertype.
 import { TestOrderPaperTypePreviewComponent }       from './test.orderpapertype.preview.component';
 import { VerticalMenuComponent }                    from '../directives/vertical-menu/vertical-menu';
 import { DND_DIRECTIVES }                           from '../directives/dnd/ng2-dnd';
-import { SELECT_DIRECTIVES }                        from "../directives/radio-group/index";
 
 @NgModule({
     imports: [BrowserModule, HttpModule, FormsModule, routing],
@@ -55,8 +54,7 @@ import { SELECT_DIRECTIVES }                        from "../directives/radio-gr
         ReportSectionComponent,
         Dragula,
         TestAccordionComponent,
-        VerticalMenuComponent,
-        SELECT_DIRECTIVES
+        VerticalMenuComponent
     ],
     bootstrap: [MasterComponent],
     providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }]
