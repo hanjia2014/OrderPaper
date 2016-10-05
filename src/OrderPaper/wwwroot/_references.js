@@ -20,6 +20,7 @@
 /// <reference path="content/scripts/vendors/tether.min.js" />
 /// <reference path="content/scripts/vendors/xeponline.jqplugin.js" />
 /// <reference path="js/site.js" />
+/// <reference path="karma.conf.js" />
 /// <reference path="lib/bootstrap/dist/js/bootstrap.js" />
 /// <reference path="lib/jquery/dist/jquery.js" />
 /// <reference path="lib/jquery-validation/dist/jquery.validate.js" />
