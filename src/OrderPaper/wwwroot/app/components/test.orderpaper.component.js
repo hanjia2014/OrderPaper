@@ -62,10 +62,10 @@ System.register(['@angular/core', '@angular/router', './base.component', '../ser
                         }, function (err) { return _this.error = err; });
                     };
                     this.printPreview = function (e) {
-                        //return xepOnline.Formatter.Format('order-paper-preview', { render: 'download' });
+                        return xepOnline.Formatter.Format('order-paper-preview', { render: 'download' });
                     };
                     this.openPreview = function (e) {
-                        //return xepOnline.Formatter.Format('order-paper-preview', { render: 'newwin' });
+                        return xepOnline.Formatter.Format('order-paper-preview', { render: 'newwin' });
                     };
                     this.dateChange = function (value) {
                         _this.orderPaperDate = value;

@@ -7,4 +7,4 @@ describe('universal truths', function () {
         expect(4).toEqual(40);
     });
 });
-//# sourceMappingURL=basic.js.map
+//# sourceMappingURL=basic-test.js.map
