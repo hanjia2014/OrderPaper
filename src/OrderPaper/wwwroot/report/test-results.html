@@ -12,15 +12,15 @@
         <td colspan="3" title="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36">Browser: Chrome 53.0.2785 (Windows 10 0.0.0)</td>
       </tr>
       <tr class="overview">
-        <td colspan="3">Timestamp: 10/9/2016, 11:13:48 AM</td>
+        <td colspan="3">Timestamp: 10/9/2016, 11:46:46 AM</td>
       </tr>
       <tr>
         <td colspan="3">
-          0 tests / 
-          1 errors / 
-          0 failures / 
-          0 skipped / 
-          runtime: 0s
+          3 tests / 
+          0 errors / 
+          1 failures / 
+          1 skipped / 
+          runtime: 0.007s
         </td>
       </tr>
       <tr class="header">
@@ -28,11 +28,40 @@
         <td>Spec</td>
         <td>Suite / Results</td>
       </tr>
-      <tr class="system-out">
-        <td colspan="3"><strong>System output:</strong><br />Chrome 53.0.2785 (Windows 10 0.0.0) ERROR
-  Uncaught TypeError: Invalid System.register call. Anonymous System.register calls can only be made by modules loaded by SystemJS.import and not via script tags.
-  at node_modules/systemjs/dist/system.src.js:3011
-</td>
+      <tr class="pass">
+        <td>Passed in 0.004s</td>
+        <td>should do math</td>
+        <td>universal truths</td>
+      </tr>
+      <tr class="skip">
+        <td>Skipped</td>
+        <td>should skip this</td>
+        <td>universal truths</td>
+      </tr>
+      <tr class="fail">
+        <td>Failed</td>
+        <td>get items from sharepoint</td>
+        <td>
+          app services
+          <br />TypeError: Cannot read property 'injector' of null
+    at TestBed._createCompilerAndModule (C:/Users/hanj/AppData/Local/Temp/d90e209d8b0093c65f294d26700deb18.browserify:4599:48)
+    at TestBed._initIfNeeded (C:/Users/hanj/AppData/Local/Temp/d90e209d8b0093c65f294d26700deb18.browserify:4565:43)
+    at TestBed.execute (C:/Users/hanj/AppData/Local/Temp/d90e209d8b0093c65f294d26700deb18.browserify:4627:18)
+    at C:/Users/hanj/AppData/Local/Temp/d90e209d8b0093c65f294d26700deb18.browserify:4719:49
+    at Object.&lt;anonymous&gt; (C:/Users/hanj/AppData/Local/Temp/d90e209d8b0093c65f294d26700deb18.browserify:3936:30)
+    at ZoneDelegate.invoke (node_modules/zone.js/dist/zone.js:203:28)
+    at ProxyZoneSpec.onInvoke (node_modules/zone.js/dist/proxy.js:72:39)
+    at ZoneDelegate.invoke (node_modules/zone.js/dist/zone.js:202:34)
+    at Zone.run (node_modules/zone.js/dist/zone.js:96:43)
+    at Object.&lt;anonymous&gt; (node_modules/zone.js/dist/jasmine-patch.js:91:50)
+    at ZoneQueueRunner.jasmine.QueueRunner.ZoneQueueRunner.execute (node_modules/zone.js/dist/jasmine-patch.js:119:42)
+    at ZoneQueueRunner.jasmine.QueueRunner.ZoneQueueRunner.execute (node_modules/zone.js/dist/jasmine-patch.js:119:42)
+    at ZoneDelegate.invokeTask (node_modules/zone.js/dist/zone.js:236:37)
+    at Zone.runTask (node_modules/zone.js/dist/zone.js:136:47)
+    at drainMicroTaskQueue (node_modules/zone.js/dist/zone.js:368:35)
+    at XMLHttpRequest.ZoneTask.invoke (node_modules/zone.js/dist/zone.js:308:25)
+
+        </td>
       </tr>
     </table>
     <hr/>
