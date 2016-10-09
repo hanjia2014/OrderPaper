@@ -5,7 +5,7 @@
     fakeAsync,
     tick
 }                               from '@angular/core/testing';
-import { OrderPaperService }    from '../../app/services/app.services';
+import { OrderPaperService }    from '../app/services/app.services';
 
 describe("app services", () => {
     beforeEach(() => {
