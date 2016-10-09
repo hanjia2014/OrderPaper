@@ -6,6 +6,7 @@
     tick
 }                               from '@angular/core/testing';
 import { OrderPaperService }    from '../app/services/app.services';
+import { BillSection }                 from '../app/models/section';
 
 describe("app services", () => {
     beforeEach(() => {
@@ -14,7 +15,9 @@ describe("app services", () => {
         });
     });
 
-    it("get items from sharepoint", fakeAsync(() => {
-        expect(true).toEqual(true);
-    }));
+    it("get items from sharepoint", () => {
+        
+        var bill = new BillSection();
+        expect(bill.Type).toEqual("Bill");
+    });
 });
