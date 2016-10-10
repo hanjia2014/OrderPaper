@@ -44,8 +44,7 @@ module.exports = function (config) {
             { pattern: 'built/**/*.js', included: false, watched: true },
 
             { pattern: 'karma-test-shim.js', included: true, watched: true },
-            { pattern: 'built/test/basic-test.js', included: true, watched: true },
-            { pattern: 'built/test/service-test.js', included: true, watched: true },
+            { pattern: 'built/test/*-test.js', included: true, watched: true },
             // paths to support debugging with source maps in dev tools
             { pattern: 'app/**/*.ts', included: false, watched: false },
             { pattern: 'built/**/*.js.map', included: false, watched: false }
