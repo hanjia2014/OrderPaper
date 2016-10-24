@@ -25,6 +25,7 @@ import { DND_PROVIDERS, DND_DIRECTIVES }                                    from
                                     </div>
                                     <div class="col-md-4">
                                         <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker>
+                                        <datetime [timepicker]="false" [(ngModel)]="date3" [datepicker]="datepickerOpts"></datetime>
                                     </div>
                                     <div class="col-md-2">
                                         Order Paper Number:
@@ -109,6 +110,16 @@ export class TestOrderPaperComponent extends BaseComponent implements OnInit {
     isPreviewMode: boolean;
     //test
     updatedSection: Section = new Section();
+
+    date3: Date;
+    datepickerOpts: any = {
+        startDate: new Date(2016, 5, 10),
+        autoclose: true,
+        todayBtn: 'linked',
+        todayHighlight: true,
+        assumeNearbyYear: true,
+        format: 'd M yyyy'
+    };
 
     constructor(private orderPaperService: OrderPaperService, private route: ActivatedRoute, private zone: NgZone) {
         super();

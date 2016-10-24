@@ -28,9 +28,10 @@ import { TestOrderPaperTypeComponent }              from './test.orderpapertype.
 import { TestOrderPaperTypePreviewComponent }       from './test.orderpapertype.preview.component';
 import { VerticalMenuComponent }                    from '../directives/vertical-menu/vertical-menu';
 import { DND_DIRECTIVES }                           from '../directives/dnd/ng2-dnd';
+import { NKDatetimeModule }                         from '../directives/datetime/ng2-datetime.module';
 
 @NgModule({
-    imports: [BrowserModule, HttpModule, FormsModule, routing],
+    imports: [BrowserModule, HttpModule, FormsModule, NKDatetimeModule, routing],
     declarations: [MasterComponent,
         LineItemComponent,
         GroupItemComponent,
